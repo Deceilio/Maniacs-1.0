@@ -18,10 +18,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 1.41
+    value: 3.39
   threshold:
     overrideState: 1
-    value: 0.89
+    value: 1.6
   softKnee:
     overrideState: 1
     value: 0.954
@@ -92,23 +92,23 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   mode:
-    overrideState: 0
+    overrideState: 1
     value: 0
   color:
-    overrideState: 0
+    overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
   center:
-    overrideState: 0
+    overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 0.405
   smoothness:
-    overrideState: 0
-    value: 0.2
+    overrideState: 1
+    value: 0.38
   roundness:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.954
   rounded:
     overrideState: 0
     value: 0
@@ -239,7 +239,7 @@ MonoBehaviour:
     value: 1
   temperature:
     overrideState: 1
-    value: -43
+    value: -39
   tint:
     overrideState: 0
     value: -44
@@ -251,16 +251,16 @@ MonoBehaviour:
     value: 0
   saturation:
     overrideState: 1
-    value: 0.45
+    value: -10
   brightness:
     overrideState: 0
     value: 0
   postExposure:
     overrideState: 1
-    value: -1
+    value: -2
   contrast:
     overrideState: 1
-    value: 1.424
+    value: 2.5
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -271,7 +271,7 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   mixerGreenOutRedIn:
-    overrideState: 0
+    overrideState: 1
     value: 0
   mixerGreenOutGreenIn:
     overrideState: 0
@@ -281,7 +281,7 @@ MonoBehaviour:
     value: 0
   mixerBlueOutRedIn:
     overrideState: 0
-    value: 0
+    value: -3
   mixerBlueOutGreenIn:
     overrideState: 0
     value: 0
@@ -290,13 +290,13 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 0.92193896, y: 0.9537648, z: 1, w: 0}
   gamma:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 1, y: 0.94084185, z: 0.9451789, w: 0}
   gain:
-    overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    overrideState: 1
+    value: {x: 0.8818073, y: 1, z: 0.7549487, w: 0}
   masterCurve:
     overrideState: 0
     value:
