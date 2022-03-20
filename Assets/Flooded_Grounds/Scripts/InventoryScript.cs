@@ -12,7 +12,9 @@ public class InventoryScript : MonoBehaviour
     void Start()
     {
         inventoryPannel.gameObject.SetActive(false);
-        
+        myInventoryActive = false;
+        Cursor.visible = false;
+
     }
 
     // Update is called once per frame
@@ -24,11 +26,17 @@ public class InventoryScript : MonoBehaviour
             {
                 myInventoryActive = true;
                 inventoryPannel.gameObject.SetActive(true);
+                Time.timeScale = 0.0f;
+                Cursor.visible = true;
             }
             else
             {
                 myInventoryActive = false;
                 inventoryPannel.gameObject.SetActive(false);
+                Time.timeScale = 1.0f;
+                Cursor.visible = false;
+                    
+
             }
         }
         
