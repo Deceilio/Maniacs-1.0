@@ -25,48 +25,76 @@ public class PlayerSettingController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        NightVision();
-        FlashLight();
+        
+        
+            NightVision();
+            FlashLight();
+
+        
 
 
     }
     // This block of code is for night vision
+    
     void NightVision()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (SaveScripts.batteryPower > 0.0f)
         {
-            if (nightVisionActive == false)
+            if (Input.GetKeyDown(KeyCode.N))
             {
-                myvolume.profile = nightVision;
-                nightVisionActive = true;
-                nightVisionOverlay.gameObject.SetActive(true);
+                if (nightVisionActive == false)
+                {
+                    myvolume.profile = nightVision;
+                    nightVisionActive = true;
+                    nightVisionOverlay.gameObject.SetActive(true);
+                    SaveScripts.nVLightOn = true;
+                }
+                else
+                {
+                    myvolume.profile = standerd;
+                    nightVisionActive = false;
+                    nightVisionOverlay.gameObject.SetActive(false);
+                    SaveScripts.nVLightOn = false;
+                }
             }
-            else
-            {
-                myvolume.profile = standerd;
-                nightVisionActive = false;
-                nightVisionOverlay.gameObject.SetActive(false);
-            }
+        }
+        if (SaveScripts.batteryPower <=0.0f)
+        {
+            myvolume.profile = standerd;
+            nightVisionActive = false;
+            nightVisionOverlay.gameObject.SetActive(false);
+            SaveScripts.nVLightOn = false;
         }
 
     }
     // this block of code is for flashlight
     void FlashLight()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (SaveScripts.batteryPower > 0.0f)
         {
-            if (flashLightActive == false)
+            if (Input.GetKeyDown(KeyCode.F))
             {
-                flashLightActive = true;
-                flashLight.gameObject.SetActive(true);
-            }
-            else
-            {
-                flashLightActive = false;
-                flashLight.gameObject.SetActive(false);
+                if (flashLightActive == false)
+                {
+                    flashLightActive = true;
+                    flashLight.gameObject.SetActive(true);
+                    SaveScripts.flashLightOn = true;
+                }
+                else
+                {
+                    flashLightActive = false;
+                    flashLight.gameObject.SetActive(false);
+                    SaveScripts.flashLightOn = false;
+                }
+
             }
 
         }
-        
+        if (SaveScripts.batteryPower <=0.0f)
+        {
+            flashLightActive = false;
+            flashLight.gameObject.SetActive(false);
+            SaveScripts.flashLightOn = false;
+        }
     }
 }
