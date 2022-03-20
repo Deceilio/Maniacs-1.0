@@ -8,12 +8,17 @@ public class InventoryScript : MonoBehaviour
     //[SerializeField] Image myInventory;
     [SerializeField] GameObject inventoryPannel;
     private bool myInventoryActive = false;
+
+    [SerializeField] GameObject appleImage1;
+    [SerializeField] GameObject appleButton1;
     // Start is called before the first frame update
     void Start()
     {
         inventoryPannel.gameObject.SetActive(false);
         myInventoryActive = false;
         Cursor.visible = false;
+        appleImage1.gameObject.SetActive(false);
+        appleButton1.gameObject.SetActive(false);
 
     }
 
@@ -39,6 +44,15 @@ public class InventoryScript : MonoBehaviour
 
             }
         }
-        
+
+        CheckInventory();
+    }
+    void CheckInventory()
+    {
+        if (SaveScripts.apples == 1)
+        {
+            appleImage1.gameObject.SetActive(true);
+            appleButton1.gameObject.SetActive(true);
+        }
     }
 }
