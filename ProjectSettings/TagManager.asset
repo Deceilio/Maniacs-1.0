@@ -6,6 +6,16 @@ TagManager:
   tags:
   - Apple
   - Baterry
+  - Knife
+  - Axe
+  - Bat
+  - Gun
+  - Crossbow
+  - GunMag
+  - Arrow
+  - RoomK
+  - HouseK
+  - CabinK
   layers:
   - Default
   - TransparentFX

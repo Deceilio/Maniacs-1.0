@@ -36,6 +36,37 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] GameObject batteryButton3;
     [SerializeField] GameObject batteryImage4;
     [SerializeField] GameObject batteryButton4;
+
+    // Weapons:
+    [SerializeField] GameObject knifeImage;
+    [SerializeField] GameObject knifeButton;
+    [SerializeField] GameObject axeImage;
+    [SerializeField] GameObject axeButton;
+    [SerializeField] GameObject batImage;
+    [SerializeField] GameObject batButton;
+    [SerializeField] GameObject gunImage;
+    [SerializeField] GameObject gunButton;
+    [SerializeField] GameObject crossbowImage;
+    [SerializeField] GameObject crossbowButton;
+
+    // Weapons Utlity:
+    [SerializeField] GameObject ammoImage1;
+    [SerializeField] GameObject ammoButton1;
+    [SerializeField] GameObject ammoImage2;
+    [SerializeField] GameObject ammoButton2;
+    [SerializeField] GameObject ammoImage3;
+    [SerializeField] GameObject ammoButton3;
+    [SerializeField] GameObject ammoImage4;
+    [SerializeField] GameObject ammoButton4;
+    [SerializeField] GameObject arrowImage1;
+    [SerializeField] GameObject arrowButton1;
+
+    //Keys:
+    [SerializeField] GameObject cabinKey;
+    [SerializeField] GameObject roomKey;
+    [SerializeField] GameObject houseKey;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,15 +89,50 @@ public class InventoryScript : MonoBehaviour
         appleButton5.gameObject.SetActive(false);
         appleImage6.gameObject.SetActive(false);
         appleButton6.gameObject.SetActive(false);
+
         //Battery
 
         batteryImage1.gameObject.SetActive(false);
+        batteryButton1.gameObject.SetActive(false);
         batteryButton2.gameObject.SetActive(false);
         batteryImage2.gameObject.SetActive(false);
         batteryImage3.gameObject.SetActive(false);
         batteryButton3.gameObject.SetActive(false);
         batteryImage4.gameObject.SetActive(false);
         batteryButton4.gameObject.SetActive(false);
+
+        //Weapon
+
+        knifeImage.gameObject.SetActive(false);
+       knifeButton.gameObject.SetActive(false);
+        axeImage.gameObject.SetActive(false);
+        axeButton.gameObject.SetActive(false);
+        batImage.gameObject.SetActive(false);
+        batButton.gameObject.SetActive(false);
+        crossbowImage.gameObject.SetActive(false);
+        crossbowButton.gameObject.SetActive(false);
+        gunImage.gameObject.SetActive(false);
+        gunButton.gameObject.SetActive(false);
+
+        // Weapon Utlity:
+
+        ammoImage1.gameObject.SetActive(false);
+        ammoButton1.gameObject.SetActive(false);
+        ammoButton2.gameObject.SetActive(false);
+        ammoImage2.gameObject.SetActive(false);
+        ammoImage3.gameObject.SetActive(false);
+        ammoButton3.gameObject.SetActive(false);
+        ammoImage4.gameObject.SetActive(false);
+        ammoButton4.gameObject.SetActive(false);
+        arrowImage1.gameObject.SetActive(false);
+        arrowButton1.gameObject.SetActive(false);
+
+        //Keys:
+        cabinKey.gameObject.SetActive(false);
+        roomKey.gameObject.SetActive(false);
+        houseKey.gameObject.SetActive(false);
+
+
     }
 
     // Update is called once per frame
@@ -93,7 +159,28 @@ public class InventoryScript : MonoBehaviour
         }
 
         CheckInventory();
-        
+        CheckWeapons();
+        WeaponUtlity();
+        CheckKeys();
+
+
+    }
+
+    void CheckKeys()
+    {
+        if (SaveScripts.cabinKey == true)
+        {
+            cabinKey.gameObject.SetActive(true);
+        }
+        if (SaveScripts.roomKey == true)
+        {
+            roomKey.gameObject.SetActive(true);
+        }
+        if (SaveScripts.houseKey == true)
+        {
+            houseKey.gameObject.SetActive(true);
+        }
+
     }
     void CheckInventory()
     { 
@@ -275,6 +362,118 @@ public class InventoryScript : MonoBehaviour
             batteryButton3.gameObject.SetActive(false);
             batteryImage4.gameObject.SetActive(true);
             batteryButton4.gameObject.SetActive(true);
+        }
+
+    }
+
+    void CheckWeapons()
+    {
+        if (SaveScripts.knife == true)
+        {
+            knifeImage.gameObject.SetActive(true);
+            knifeButton.gameObject.SetActive(true);
+            
+        }
+        if (SaveScripts.axe == true)
+        {
+            
+            axeImage.gameObject.SetActive(true);
+            axeButton.gameObject.SetActive(true);
+           
+        }
+        if (SaveScripts.bat == true)
+        {
+            
+            batImage.gameObject.SetActive(true);
+            batButton.gameObject.SetActive(true);
+            
+        }
+        if (SaveScripts.crossbow == true)
+        {
+      
+            crossbowImage.gameObject.SetActive(true);
+            crossbowButton.gameObject.SetActive(true);
+           
+        }
+        if (SaveScripts.gun == true)
+        {
+         
+            gunImage.gameObject.SetActive(true);
+            gunButton.gameObject.SetActive(true);
+        }
+    }
+
+    void WeaponUtlity()
+    {
+        if (SaveScripts.gunMag == 0)
+        {
+
+            ammoImage1.gameObject.SetActive(false);
+            ammoButton1.gameObject.SetActive(false);
+            ammoButton2.gameObject.SetActive(false);
+            ammoImage2.gameObject.SetActive(false);
+            ammoImage3.gameObject.SetActive(false);
+            ammoButton3.gameObject.SetActive(false);
+            ammoImage4.gameObject.SetActive(false);
+            ammoButton4.gameObject.SetActive(false);
+        }
+        if (SaveScripts.gunMag == 1)
+        {
+
+            ammoImage1.gameObject.SetActive(true);
+            ammoButton1.gameObject.SetActive(true);
+            ammoButton2.gameObject.SetActive(false);
+            ammoImage2.gameObject.SetActive(false);
+            ammoImage3.gameObject.SetActive(false);
+            ammoButton3.gameObject.SetActive(false);
+            ammoImage4.gameObject.SetActive(false);
+            ammoButton4.gameObject.SetActive(false);
+        }
+        if (SaveScripts.gunMag == 2)
+        {
+
+            ammoImage1.gameObject.SetActive(true);
+            ammoButton1.gameObject.SetActive(false);
+            ammoButton2.gameObject.SetActive(true);
+            ammoImage2.gameObject.SetActive(true);
+            ammoImage3.gameObject.SetActive(false);
+            ammoButton3.gameObject.SetActive(false);
+            ammoImage4.gameObject.SetActive(false);
+            ammoButton4.gameObject.SetActive(false);
+        }
+        if (SaveScripts.gunMag == 3)
+        {
+
+            ammoImage1.gameObject.SetActive(true);
+            ammoButton1.gameObject.SetActive(false);
+            ammoButton2.gameObject.SetActive(false);
+            ammoImage2.gameObject.SetActive(true);
+            ammoImage3.gameObject.SetActive(true);
+            ammoButton3.gameObject.SetActive(true);
+            ammoImage4.gameObject.SetActive(false);
+            ammoButton4.gameObject.SetActive(false);
+        }
+        if (SaveScripts.gunMag == 4)
+        {
+
+            ammoImage1.gameObject.SetActive(true);
+            ammoButton1.gameObject.SetActive(false);
+            ammoButton2.gameObject.SetActive(false);
+            ammoImage2.gameObject.SetActive(true);
+            ammoImage3.gameObject.SetActive(true);
+            ammoButton3.gameObject.SetActive(false);
+            ammoImage4.gameObject.SetActive(true);
+            ammoButton4.gameObject.SetActive(true);
+        }
+        if (SaveScripts.arrowRefill==false)
+        {
+            arrowImage1.gameObject.SetActive(false);
+            arrowButton1.gameObject.SetActive(false);
+        }
+        if (SaveScripts.arrowRefill==true)
+        {
+            arrowImage1.gameObject.SetActive(true);
+            arrowButton1.gameObject.SetActive(true);
         }
     }
     public void HealthUpdate()

@@ -14,5 +14,15 @@ public class SaveScripts : MonoBehaviour
 
     public static int apples = 0;
     public static int batteryes = 0;
+    public static int gunMag = 0;
+    public static bool arrowRefill = false;
+    public static bool cabinKey = false;
+    public static bool roomKey = false;
+    public static bool houseKey = false;
+    public static bool knife = false;
+    public static bool axe = false;
+    public static bool bat = false;
+    public static bool gun = false;
+    public static bool crossbow = false;
 
 }
