@@ -8,6 +8,11 @@ public class InventoryScript : MonoBehaviour
     //[SerializeField] Image myInventory;
     [SerializeField] GameObject inventoryPannel;
     private bool myInventoryActive = false;
+    private AudioSource myPlayer;
+    [SerializeField] AudioClip appleBite;
+    [SerializeField] AudioClip batteryChange;
+
+
     //Apples
     [SerializeField] GameObject appleImage1;
     [SerializeField] GameObject appleButton1;
@@ -37,6 +42,9 @@ public class InventoryScript : MonoBehaviour
         inventoryPannel.gameObject.SetActive(false);
         myInventoryActive = false;
         Cursor.visible = false;
+        myPlayer = GetComponent<AudioSource>();
+
+
         // Apples
         appleImage1.gameObject.SetActive(false);
         appleButton1.gameObject.SetActive(false);
@@ -275,12 +283,16 @@ public class InventoryScript : MonoBehaviour
             SaveScripts.playerHealth += 10;
             SaveScripts.healthChanged = true;
             SaveScripts.apples -= 1;
+            myPlayer.clip = appleBite;
+            myPlayer.Play();
+
+            if (SaveScripts.playerHealth > 0)
+            {
+                SaveScripts.playerHealth = 100;
+            }
         }
 
-        if (SaveScripts.playerHealth > 0)
-        {
-            SaveScripts.playerHealth = 100;
-        }
+        
        
     }
     public void BattryUpdate()
@@ -288,6 +300,8 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.batteryRefill = true;
 
         SaveScripts.batteryes -= 1;
-       
+        myPlayer.clip = batteryChange;
+        myPlayer.Play();
+
     }
 }

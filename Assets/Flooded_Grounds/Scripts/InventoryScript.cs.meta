@@ -3,7 +3,29 @@ guid: b10968c99747c2b4089c413733fd23ac
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - inventoryPannel: {instanceID: 0}
+  - appleBite: {fileID: 8300000, guid: 285a775ea3df50c439dd4ee1bac597e6, type: 3}
+  - appleImage1: {instanceID: 0}
+  - appleButton1: {instanceID: 0}
+  - appleImage2: {instanceID: 0}
+  - appleButton2: {instanceID: 0}
+  - appleImage3: {instanceID: 0}
+  - appleButton3: {instanceID: 0}
+  - appleImage4: {instanceID: 0}
+  - appleButton4: {instanceID: 0}
+  - appleImage5: {instanceID: 0}
+  - appleButton5: {instanceID: 0}
+  - appleImage6: {instanceID: 0}
+  - appleButton6: {instanceID: 0}
+  - batteryImage1: {instanceID: 0}
+  - batteryButton1: {instanceID: 0}
+  - batteryImage2: {instanceID: 0}
+  - batteryButton2: {instanceID: 0}
+  - batteryImage3: {instanceID: 0}
+  - batteryButton3: {instanceID: 0}
+  - batteryImage4: {instanceID: 0}
+  - batteryButton4: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
