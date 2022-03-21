@@ -30,14 +30,35 @@ public class PickUpScript : MonoBehaviour
                 canSeePickup = true;
                 if(Input.GetKeyDown(KeyCode.E))
                 {
-                    Destroy(hit.transform.gameObject);
-                    SaveScripts.apples += 1;
+                    if (SaveScripts.apples < 6)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScripts.apples += 1;
+                    }
+                   
+                }
+            }
+           
+
+           else if ( hit.transform.tag == "Baterry")
+            {
+                canSeePickup = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (SaveScripts.batteryes < 4)
+                    {
+                        Destroy(hit.transform.gameObject);
+
+                        SaveScripts.batteryes += 1;
+                    }
+                    
                 }
             }
             else
             {
                 canSeePickup = false;
             }
+
         }
         if (canSeePickup == true)
         {
