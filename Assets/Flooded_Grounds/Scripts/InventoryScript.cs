@@ -11,6 +11,17 @@ public class InventoryScript : MonoBehaviour
     private AudioSource myPlayer;
     [SerializeField] AudioClip appleBite;
     [SerializeField] AudioClip batteryChange;
+    [SerializeField] AudioClip WeaponChange;
+    [SerializeField] AudioClip gunShort;
+    [SerializeField] AudioClip arrowShort;
+    [SerializeField] GameObject playerArms;
+    [SerializeField] GameObject knife;
+    [SerializeField] GameObject bat;
+    [SerializeField] GameObject axe;
+    [SerializeField] GameObject gun;
+    [SerializeField] GameObject crossbow;
+
+    [SerializeField] Animator anim;
 
 
     //Apples
@@ -74,6 +85,7 @@ public class InventoryScript : MonoBehaviour
         myInventoryActive = false;
         Cursor.visible = false;
         myPlayer = GetComponent<AudioSource>();
+       
 
 
         // Apples
@@ -502,5 +514,63 @@ public class InventoryScript : MonoBehaviour
         myPlayer.clip = batteryChange;
         myPlayer.Play();
 
+    }
+    public void AssignKnife()
+    {
+        playerArms.gameObject.SetActive(true);
+        knife.gameObject.SetActive(true);
+        anim.SetBool("Malee", true);
+        myPlayer.clip = WeaponChange;
+        myPlayer.Play();
+
+
+    }
+    public void AssignBat()
+    {
+        playerArms.gameObject.SetActive(true);
+        bat.gameObject.SetActive(true);
+        anim.SetBool("Malee", true);
+        myPlayer.clip = WeaponChange;
+        myPlayer.Play();
+
+
+    }
+    public void AssignAxe()
+    {
+        playerArms.gameObject.SetActive(true);
+        axe.gameObject.SetActive(true);
+        anim.SetBool("Malee", true);
+        myPlayer.clip = WeaponChange;
+        myPlayer.Play();
+
+
+    }
+    public void AssignGun()
+    {
+        playerArms.gameObject.SetActive(true);
+        gun.gameObject.SetActive(true);
+        anim.SetBool("Malee", false);
+        myPlayer.clip = gunShort;
+        myPlayer.Play();
+
+
+    }
+    public void AssignCrossbow()
+    {
+        playerArms.gameObject.SetActive(true);
+        crossbow.gameObject.SetActive(true);
+        anim.SetBool("Malee", false);
+        myPlayer.clip = arrowShort;
+        myPlayer.Play();
+
+
+    }
+    public void WeaponsOff()
+    {
+        axe.gameObject.SetActive(false);
+        bat.gameObject.SetActive(false);
+        knife.gameObject.SetActive(false);
+        gun.gameObject.SetActive(false);
+        crossbow.gameObject.SetActive(false);
     }
 }
