@@ -43,6 +43,15 @@ public class PickUpScript : MonoBehaviour
                    
                 }
             }
+            if (hit.transform.tag == "Door")
+            {
+                canSeePickup = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    hit.transform.gameObject.SendMessageUpwards("DoorOpen");
+
+                }
+            }
 
             else if (hit.transform.tag == "GunMag")
             {
