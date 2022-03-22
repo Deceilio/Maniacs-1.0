@@ -509,7 +509,7 @@ public class InventoryScript : MonoBehaviour
     public void BattryUpdate()
     {
         SaveScripts.batteryRefill = true;
-
+        SaveScripts.batteryPower += 1;
         SaveScripts.batteryes -= 1;
         myPlayer.clip = batteryChange;
         myPlayer.Play();
