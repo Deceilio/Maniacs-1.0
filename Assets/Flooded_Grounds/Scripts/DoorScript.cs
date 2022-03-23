@@ -6,10 +6,20 @@ public class DoorScript : MonoBehaviour
 {
     private Animator anim;
     public bool isOpen = false;
+   
+    private AudioSource myplayer;
+    [SerializeField] AudioClip cabinSound;
+    [SerializeField] AudioClip roomSound;
+    [SerializeField] AudioClip houseSound;
+    [SerializeField] bool cabin;
+    [SerializeField] bool room;
+    [SerializeField] bool house;
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>(); 
+        anim = GetComponent<Animator>();
+        myplayer = GetComponent<AudioSource>();
+       
     }
 
     // Update is called once per frame
@@ -23,11 +33,43 @@ public class DoorScript : MonoBehaviour
         {
             anim.SetTrigger("Open");
             isOpen = true;
+
+            if (cabin == true)
+            {
+                myplayer.clip = cabinSound;
+                myplayer.Play();
+            }
+            if (house == true)
+            {
+                myplayer.clip = houseSound;
+                myplayer.Play();
+            }
+            if (room == true)
+            {
+                myplayer.clip = roomSound;
+                myplayer.Play();
+            }
         }
         else if (isOpen == true)
         {
             anim.SetTrigger("Close");
             isOpen = false;
+
+            if (cabin == true)
+            {
+                myplayer.clip = cabinSound;
+                myplayer.Play();
+            }
+            if (house == true)
+            {
+                myplayer.clip = houseSound;
+                myplayer.Play();
+            }
+            if (room == true)
+            {
+                myplayer.clip = roomSound;
+                myplayer.Play();
+            }
         }
     }
 }
