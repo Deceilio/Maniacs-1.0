@@ -23,6 +23,7 @@ public class EnemyAtack : MonoBehaviour
     [SerializeField] float attackRotateSpeed = 2.0f;
     [SerializeField] float checkTime = 3.0f;
     [SerializeField] GameObject chaseMusic;
+    [SerializeField] GameObject hurtUI;
 
     // Start is called before the first frame update
     void Start()
@@ -43,13 +44,13 @@ public class EnemyAtack : MonoBehaviour
                 blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
                 if (blocked == false)
                 {
-                    Debug.Log("ICan see");
+                   // Debug.Log("ICan see");
                     runToPlayer = true;
                     failedChecks = 0;
                 }
                 if (blocked == true)
                 {
-                    Debug.Log("Where Did You Go");
+                    //Debug.Log("Where Did You Go");
                     runToPlayer = false;
                     anim.SetInteger("State", 1);
                     failedChecks++;
@@ -68,6 +69,7 @@ public class EnemyAtack : MonoBehaviour
                 nav.acceleration = 24;
                 nav.SetDestination(player.position);
                 nav.speed = chaseSpeed;
+                hurtUI.gameObject.SetActive(false);
             }
 
             if (distanceToPlayer < attackDistance - 0.5f)
@@ -79,8 +81,8 @@ public class EnemyAtack : MonoBehaviour
                 Vector3 pos = (player.position - enemy.transform.position).normalized;
                 Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
                 enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, posRotation, Time.deltaTime * attackRotateSpeed);
-                
-           
+                hurtUI.gameObject.SetActive(true);
+
             }
         }
         else if (runToPlayer == false)
