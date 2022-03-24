@@ -72,4 +72,12 @@ public class DoorScript : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+
+        }
+    }
 }

@@ -17,6 +17,7 @@ TagManager:
   - HouseK
   - CabinK
   - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX

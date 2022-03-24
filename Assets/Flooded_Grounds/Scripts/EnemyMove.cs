@@ -6,12 +6,17 @@ using UnityEngine.AI;
 public class EnemyMove : MonoBehaviour
 {
     private NavMeshAgent nav;
+    private Animator anim;
     private Transform theTarget;
 
     private float distanceToTarget;
     private int targetNumber = 1;
+    private bool hasStopped = false;
     [SerializeField] float stopDistance = 2.0f;
     [SerializeField] int maxTargets = 7;
+    [SerializeField] float waitTime = 2.0f;
+    private bool randomizer = true;
+    private int nextTargetNumber;
     [SerializeField] Transform target1;
     [SerializeField] Transform target2;
    [SerializeField] Transform target3;
@@ -24,6 +29,7 @@ public class EnemyMove : MonoBehaviour
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
+        anim = GetComponent<Animator>();
         theTarget = target1;
         
     }
@@ -35,17 +41,19 @@ public class EnemyMove : MonoBehaviour
         if (distanceToTarget > stopDistance)
         {
             nav.SetDestination(theTarget.position);
+            anim.SetInteger("State", 0);
+            nav.isStopped = false;
+            nextTargetNumber = targetNumber;
         }
         if (distanceToTarget < stopDistance)
         {
-            targetNumber++;
-            if (targetNumber > maxTargets)
-            {
-                targetNumber = 1;
-            }
+            nav.isStopped = true;
+            anim.SetInteger("State", 1);
+            StartCoroutine(LookAround());
+           
            
         }
-        SetTarget();
+        
 
     }
     void SetTarget()
@@ -80,4 +88,32 @@ public class EnemyMove : MonoBehaviour
         }
     }
     
+    IEnumerator LookAround()
+    {
+        yield return new WaitForSeconds(waitTime);
+        if (hasStopped == false)
+        {
+            hasStopped = true;
+
+            if (randomizer == true)
+            {
+                randomizer = false;
+                targetNumber = Random.Range(1, maxTargets);
+
+                if (targetNumber == nextTargetNumber)
+                {
+                    targetNumber++;
+                    if (targetNumber >= maxTargets)
+                    {
+                        targetNumber = 1;
+                    }
+                }
+              
+            }
+            SetTarget();
+            yield return new WaitForSeconds(waitTime);
+            hasStopped = false;
+            randomizer = true;
+        }
+    }
 }
