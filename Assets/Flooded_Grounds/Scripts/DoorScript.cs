@@ -107,6 +107,14 @@ public class DoorScript : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
+            if (locked == false)
+            {
+                if (isOpen == false)
+                {
+                    anim.SetTrigger("Open");
+                    isOpen = true;
+                }
+            }
 
         }
     }

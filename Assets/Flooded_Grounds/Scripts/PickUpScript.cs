@@ -73,11 +73,12 @@ public class PickUpScript : MonoBehaviour
 
                     }
                 }
+                else if (hit.transform.gameObject.GetComponent<DoorScript>().locked == true)
+                {
+                    doorText.text = "You need the " + hit.transform.gameObject.GetComponent<DoorScript>().doorType + " key";
+                }
             }
-          /*  else if (hit.transform.gameObject.GetComponent<DoorScript>().locked == true)
-            {
-             doorText.text = "You Need The" + hit.transform.gameObject.GetComponent<DoorScript>().doorType + "Key";
-           }*/
+          
 
             else if (hit.transform.tag == "GunMag")
             {
