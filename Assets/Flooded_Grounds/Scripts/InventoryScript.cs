@@ -158,6 +158,9 @@ public class InventoryScript : MonoBehaviour
                 inventoryPannel.gameObject.SetActive(true);
                 Time.timeScale = 0.0f;
                 Cursor.visible = true;
+                SaveScripts.haveKnife = false;
+                SaveScripts.haveBat = false;
+                SaveScripts.haveAxe = false;
             }
             else
             {
@@ -522,6 +525,9 @@ public class InventoryScript : MonoBehaviour
         anim.SetBool("Malee", true);
         myPlayer.clip = WeaponChange;
         myPlayer.Play();
+        SaveScripts.haveKnife = true;
+        SaveScripts.haveBat = false;
+        SaveScripts.haveAxe = false;
 
 
     }
@@ -532,6 +538,9 @@ public class InventoryScript : MonoBehaviour
         anim.SetBool("Malee", true);
         myPlayer.clip = WeaponChange;
         myPlayer.Play();
+        SaveScripts.haveKnife = false;
+        SaveScripts.haveBat = true;
+        SaveScripts.haveAxe = false;
 
 
     }
@@ -542,6 +551,9 @@ public class InventoryScript : MonoBehaviour
         anim.SetBool("Malee", true);
         myPlayer.clip = WeaponChange;
         myPlayer.Play();
+        SaveScripts.haveKnife = false;
+        SaveScripts.haveBat = false;
+        SaveScripts.haveAxe = true;
 
 
     }

@@ -14,6 +14,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         [SerializeField] private bool m_IsWalking;
         [SerializeField] private float m_WalkSpeed;
         [SerializeField] private float m_RunSpeed;
+        private float setRunSpeed;
+        [SerializeField] float stamina = 10.0f;
+        [SerializeField] float maxStamina = 10.0f;
+        [SerializeField] int decayRate = 1;
+        [SerializeField] float refillRate = 0.25f;
+        [SerializeField] GameObject lightBreathing;
+        [SerializeField] GameObject heavyBreathing;
+        private bool lightBreath = false;
+        private bool heavyBreath = false;
+
+
         [SerializeField] [Range(0f, 1f)] private float m_RunstepLenghten;
         [SerializeField] private float m_JumpSpeed;
         [SerializeField] private float m_StickToGroundForce;
@@ -56,12 +67,78 @@ namespace UnityStandardAssets.Characters.FirstPerson
             m_Jumping = false;
             m_AudioSource = GetComponent<AudioSource>();
 			m_MouseLook.Init(transform , m_Camera.transform);
+
+            setRunSpeed = m_RunSpeed;
+            lightBreathing.gameObject.SetActive(false);
+            heavyBreathing.gameObject.SetActive(false);
+
         }
 
 
         // Update is called once per frame
         private void Update()
         {
+            Debug.Log(stamina);
+
+            if (lightBreath == false)
+            {
+                if (stamina < 3)
+                {
+                    lightBreathing.gameObject.SetActive(true);
+                    heavyBreathing.gameObject.SetActive(false);
+                    lightBreath = true;
+                }
+            }
+            if (lightBreath == true)
+            {
+                if (stamina > 3)
+                {
+                    lightBreathing.gameObject.SetActive(false);
+                    heavyBreathing.gameObject.SetActive(false);
+                    lightBreath = false;
+                    m_RunSpeed = setRunSpeed;
+                }
+            }
+
+            if (heavyBreath == false)
+            {
+                if (stamina < 1.5)
+                {
+                    lightBreathing.gameObject.SetActive(false);
+                    heavyBreathing.gameObject.SetActive(true);
+                    heavyBreath = true;
+                    m_RunSpeed = m_WalkSpeed;
+
+                }
+            }
+            if (heavyBreath== true)
+            {
+                if (stamina > 1.5)
+                {
+                    lightBreathing.gameObject.SetActive(false);
+                    heavyBreathing.gameObject.SetActive(false);
+                    heavyBreath = false;
+                }
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (stamina > 0.1)
+                {
+                    stamina = stamina - decayRate * Time.deltaTime;
+                }
+            }
+            if (!Input.GetKey(KeyCode.LeftShift))
+            {
+                if (stamina < maxStamina)
+                {
+                    stamina = stamina + refillRate * Time.deltaTime;
+                }
+            }
+            if (stamina <= 0.1)
+            {
+                stamina = 0.1f;
+            }
             RotateView();
             // the jump state needs to read here to make sure it is not missed
             if (!m_Jump)
@@ -205,6 +282,14 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
             m_Camera.transform.localPosition = newCameraPosition;
         }
+
+
+
+
+
+
+
+
 
 
         private void GetInput(out float speed)

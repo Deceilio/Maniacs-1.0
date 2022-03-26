@@ -14,14 +14,16 @@ public class PickUpScript : MonoBehaviour
 
     private bool canSeeDoor = false;
     [SerializeField] GameObject doorMessage;
-    //[SerializeField] Text doorText;
-    
+    [SerializeField] Text doorText;
+
+    //[SerializeField] DoorScript door;
     private bool canSeePickup = false;
     private float rayDistance;
 
     // Start is called before the first frame update
     void Start()
     {
+        
 
         pickupMessage.gameObject.SetActive(false);
         doorMessage.gameObject.SetActive(false);
@@ -50,23 +52,32 @@ public class PickUpScript : MonoBehaviour
                    
                 }
             }
-             if (hit.transform.tag == "Door")
+            if (hit.transform.tag == "Door")
             {
                 canSeeDoor = true;
-               // if (hit.transform.gameObject.GetComponent<DoorScript>().isOpen == false)
-               // {
-                  // doorText.text = "Press E to Open";
-               //}
-              // if (hit.transform.gameObject.GetComponent<DoorScript>().isOpen == true)
-               // {
-                 // doorText.text = "Press E to Close";
-                //}
-                if (Input.GetKeyDown(KeyCode.E))
+                if (hit.transform.gameObject.GetComponent<DoorScript>().locked == false)
                 {
-                    hit.transform.gameObject.SendMessageUpwards("DoorOpen");
 
+
+                    if (hit.transform.gameObject.GetComponent<DoorScript>().isOpen == false)
+                    {
+                        doorText.text = "Press E to Open";
+                    }
+                    if (hit.transform.gameObject.GetComponent<DoorScript>().isOpen == true)
+                    {
+                        doorText.text = "Press E to Close";
+                    }
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        hit.transform.gameObject.SendMessageUpwards("DoorOpen");
+
+                    }
                 }
             }
+          /*  else if (hit.transform.gameObject.GetComponent<DoorScript>().locked == true)
+            {
+             doorText.text = "You Need The" + hit.transform.gameObject.GetComponent<DoorScript>().doorType + "Key";
+           }*/
 
             else if (hit.transform.tag == "GunMag")
             {
@@ -83,15 +94,15 @@ public class PickUpScript : MonoBehaviour
                 }
             }
 
-           else if (hit.transform.tag == "Arrow")
+            else if (hit.transform.tag == "Arrow")
             {
                 canSeePickup = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (SaveScripts.arrowRefill==false)
+                    if (SaveScripts.arrowRefill == false)
                     {
                         Destroy(hit.transform.gameObject);
-                        SaveScripts.arrowRefill=true;
+                        SaveScripts.arrowRefill = true;
                         myplayer.Play();
                     }
 
@@ -102,7 +113,7 @@ public class PickUpScript : MonoBehaviour
                 canSeePickup = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (SaveScripts.cabinKey== false)
+                    if (SaveScripts.cabinKey == false)
                     {
                         Destroy(hit.transform.gameObject);
                         SaveScripts.cabinKey = true;
@@ -144,7 +155,7 @@ public class PickUpScript : MonoBehaviour
                 canSeePickup = true;
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    if (SaveScripts.bat==false)
+                    if (SaveScripts.bat == false)
                     {
                         Destroy(hit.transform.gameObject);
                         SaveScripts.bat = true;
@@ -214,11 +225,11 @@ public class PickUpScript : MonoBehaviour
                 }
 
             }
-            
 
 
 
-            else if ( hit.transform.tag == "Baterry")
+
+            else if (hit.transform.tag == "Baterry")
             {
                 canSeePickup = true;
                 if (Input.GetKeyDown(KeyCode.E))
@@ -230,7 +241,7 @@ public class PickUpScript : MonoBehaviour
                         SaveScripts.batteryes += 1;
                         myplayer.Play();
                     }
-                    
+
                 }
             }
             else

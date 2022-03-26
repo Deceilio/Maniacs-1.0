@@ -5,7 +5,7 @@ using UnityEngine;
 public class DoorScript : MonoBehaviour
 {
     private Animator anim;
-    public bool isOpen = false;
+    public  bool isOpen = false;
    
     private AudioSource myplayer;
     [SerializeField] AudioClip cabinSound;
@@ -14,6 +14,9 @@ public class DoorScript : MonoBehaviour
     [SerializeField] bool cabin;
     [SerializeField] bool room;
     [SerializeField] bool house;
+    public bool locked;
+    public string doorType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +28,34 @@ public class DoorScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (cabin == true)
+        {
+            doorType = "cabin";
+            if (SaveScripts.cabinKey == true)
+            {
+                locked = false;
+            }
+
+        }
+        if (house == true)
+        {
+            doorType = "house";
+            if (SaveScripts.houseKey == true)
+            {
+                locked = false;
+            }
+
+        }
+        if (room == true)
+        {
+            doorType = "room";
+            if (SaveScripts.roomKey == true)
+            {
+                locked = false;
+            }
+
+        }
+
     }
     public void DoorOpen()
     {
