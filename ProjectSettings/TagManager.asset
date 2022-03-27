@@ -18,6 +18,11 @@ TagManager:
   - CabinK
   - Door
   - Enemy
+  - PKnife
+  - PAxe
+  - PBat
+  - PGun
+  - PCrossbow
   layers:
   - Default
   - TransparentFX

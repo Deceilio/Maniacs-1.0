@@ -8,6 +8,7 @@ public class EnemyWeaponDamage : MonoBehaviour
     [SerializeField] Animator hurtAnim;
     [SerializeField] AudioSource myplayer;
     private bool hitActive = false;
+    [SerializeField] GameObject fpsArms;
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -20,6 +21,7 @@ public class EnemyWeaponDamage : MonoBehaviour
                 SaveScripts.playerHealth -= weaponDamage;
                 SaveScripts.healthChanged = true;
                 myplayer.Play();
+                fpsArms.GetComponent<PlayerAttaacks>().attackStamina -= 0.2f;
             }
         }
 

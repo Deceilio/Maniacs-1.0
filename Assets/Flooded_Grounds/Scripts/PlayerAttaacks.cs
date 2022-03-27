@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerAttaacks : MonoBehaviour
 {
     private Animator anim;
-    [SerializeField] float attackStamina = 10.0f;
+    public float attackStamina = 10.0f;
     [SerializeField] float maxAttackStamina = 10.0f;
     [SerializeField] float attackDrain = 2.0f;
     [SerializeField] float attackRefill = 1.0f;
@@ -21,7 +21,7 @@ public class PlayerAttaacks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(attackStamina);
+        Debug.Log("Attack Stamina"+attackStamina);
         if (attackStamina < maxAttackStamina)
         {
             attackStamina += attackRefill * Time.deltaTime;
