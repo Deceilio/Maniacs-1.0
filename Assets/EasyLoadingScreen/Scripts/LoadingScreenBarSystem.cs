@@ -30,7 +30,10 @@ public class LoadingScreenBarSystem : MonoBehaviour {
         menuScreen.gameObject.SetActive(false);
         
     }
-
+    public void NewGAme()
+    {
+        SaveScripts.newGame = true;
+    }
     // Used to try. Delete the comment lines (25 and 36)
     /*
     public void Update()
@@ -47,11 +50,12 @@ public class LoadingScreenBarSystem : MonoBehaviour {
 
     private void Start()
     {
+        Cursor.visible = true;
         vignetteEfect = transform.Find("VignetteEfect").GetComponent<Image>();
         vignetteEfect.color = new Color(vignetteEfect.color.r,vignetteEfect.color.g,vignetteEfect.color.b,vignetteEfectVolue);
 
         menuScreen.gameObject.SetActive(true);
-        loading_Screen.gameObject.SetActive(false);
+        //loading_Screen.gameObject.SetActive(true);
 
         if (backGroundImageAndLoop)
             StartCoroutine(transitionImage());
