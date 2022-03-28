@@ -180,6 +180,7 @@ public class InventoryScript : MonoBehaviour
                 SaveScripts.haveKnife = false;
                 SaveScripts.haveBat = false;
                 SaveScripts.haveAxe = false;
+                SaveScripts.haveGun = false;
             }
             else
             {
@@ -583,6 +584,10 @@ public class InventoryScript : MonoBehaviour
         anim.SetBool("Malee", false);
         myPlayer.clip = gunShort;
         myPlayer.Play();
+        SaveScripts.haveGun = true;
+        SaveScripts.haveKnife = false;
+        SaveScripts.haveBat = false;
+        SaveScripts.haveAxe = false;
 
 
     }
