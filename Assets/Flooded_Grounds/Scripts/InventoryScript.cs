@@ -9,6 +9,7 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] GameObject inventoryPannel;
     private bool myInventoryActive = false;
     private AudioSource myPlayer;
+    private bool optionsActive;
     [SerializeField] AudioClip appleBite;
     [SerializeField] AudioClip batteryChange;
     [SerializeField] AudioClip WeaponChange;
@@ -22,6 +23,7 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] GameObject crossbow;
 
     [SerializeField] Animator anim;
+    [SerializeField] GameObject optionsMenue;
 
 
     //Apples
@@ -84,7 +86,9 @@ public class InventoryScript : MonoBehaviour
         inventoryPannel.gameObject.SetActive(false);
         myInventoryActive = false;
         Cursor.visible = false;
+        Time.timeScale = 1;
         myPlayer = GetComponent<AudioSource>();
+        optionsMenue.gameObject.SetActive(false);
        
 
 
@@ -150,6 +154,21 @@ public class InventoryScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            if (optionsActive == false)
+            {
+                optionsMenue.gameObject.SetActive(true);
+                optionsActive = true;
+            }
+            else if (optionsActive == true)
+            {
+                optionsMenue.gameObject.SetActive(false);
+                Cursor.visible = false;
+                Time.timeScale = 1;
+                optionsActive = false;
+            }
+        }
         if(Input.GetKeyDown(KeyCode.I))
         {
             if (myInventoryActive == false)
