@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4977485751071522}
   - component: {fileID: 198719912503724044}
   - component: {fileID: 199226664080650972}
+  - component: {fileID: 566377118267424354}
   m_Layer: 0
   m_Name: MuzzleFlash
   m_TagString: Untagged
@@ -4711,7 +4712,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4755,6 +4755,19 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &566377118267424354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782395880954752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a688ae911546364baa1b838aa3e13a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 0.2
 --- !u!1 &1845643716156742
 GameObject:
   m_ObjectHideFlags: 0
@@ -9532,7 +9545,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 3b9b73bdf59096b4f8ca30c0a5d98a45, type: 2}
-  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

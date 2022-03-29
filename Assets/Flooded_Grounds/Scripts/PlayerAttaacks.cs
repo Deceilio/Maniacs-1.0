@@ -11,6 +11,8 @@ public class PlayerAttaacks : MonoBehaviour
     [SerializeField] float attackRefill = 1.0f;
     [SerializeField] GameObject crosshair;
     [SerializeField] GameObject pointer;
+    private AudioSource myplayer;
+    [SerializeField] AudioClip gunShortSound;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class PlayerAttaacks : MonoBehaviour
         attackStamina = maxAttackStamina;
         crosshair.gameObject.SetActive(false);
         pointer.gameObject.SetActive(true);
+        myplayer=GetComponent<AudioSource>();
 
     }
 
@@ -102,9 +105,19 @@ public class PlayerAttaacks : MonoBehaviour
 
                     pointer.gameObject.SetActive(true);
                 }
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    if (SaveScripts.bullets > 0)
+                    {
+                        myplayer.clip = gunShortSound;
+                        myplayer.Play();
+                    }
+                }
 
 
             }
         }
     }
+
+   
 }

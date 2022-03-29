@@ -17,7 +17,7 @@ public class EnemyAtack : MonoBehaviour
     [SerializeField] Transform enemy;
     [SerializeField] float maxRange=35.0f;
     [SerializeField] int maxChecks = 3;
-    [SerializeField] float chaseSpeed = 8.5f;
+    [SerializeField] float chaseSpeed = 2.5f;
     [SerializeField] float walkSpeed = 1.5f;
     [SerializeField] float attackDistance = 2.5f;
     [SerializeField] float attackRotateSpeed = 2.0f;

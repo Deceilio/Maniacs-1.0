@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveScripts : MonoBehaviour
 {
-    public static int playerHealth = 100;
+    public static int playerHealth = 500;
     public static bool healthChanged = false;
     public static float batteryPower=1.0f;
 
@@ -29,6 +29,7 @@ public class SaveScripts : MonoBehaviour
     public static bool haveGun = false;
     public static bool haveAxe = false;
     public static bool newGame = false;
+    public static int bullets = 12;
 
     private void Start()
     {

@@ -21,6 +21,9 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] GameObject axe;
     [SerializeField] GameObject gun;
     [SerializeField] GameObject crossbow;
+    [SerializeField] GameObject gunUI;
+    [SerializeField] GameObject bulletAmt;
+
 
     [SerializeField] Animator anim;
     [SerializeField] GameObject optionsMenue;
@@ -89,7 +92,9 @@ public class InventoryScript : MonoBehaviour
         Time.timeScale = 1;
         myPlayer = GetComponent<AudioSource>();
         optionsMenue.gameObject.SetActive(false);
-       
+        gunUI.gameObject.SetActive(false);
+        bulletAmt.gameObject.SetActive(false);
+
 
 
         // Apples
@@ -181,6 +186,8 @@ public class InventoryScript : MonoBehaviour
                 SaveScripts.haveBat = false;
                 SaveScripts.haveAxe = false;
                 SaveScripts.haveGun = false;
+                gunUI.gameObject.SetActive(false);
+                bulletAmt.gameObject.SetActive(false);
             }
             else
             {
@@ -588,6 +595,8 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveKnife = false;
         SaveScripts.haveBat = false;
         SaveScripts.haveAxe = false;
+        gunUI.gameObject.SetActive(true);
+        bulletAmt.gameObject.SetActive(true);
 
 
     }
@@ -608,5 +617,14 @@ public class InventoryScript : MonoBehaviour
         knife.gameObject.SetActive(false);
         gun.gameObject.SetActive(false);
         crossbow.gameObject.SetActive(false);
+    }
+    public void AmmoRefill()
+    {
+        SaveScripts.gunMag -= 1;
+        SaveScripts.bullets += 12;
+        if (SaveScripts.bullets > 12)
+        {
+            SaveScripts.bullets = 12;
+        }
     }
 }
