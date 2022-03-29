@@ -25,79 +25,87 @@ public class EnemyAtack : MonoBehaviour
     [SerializeField] GameObject chaseMusic;
     [SerializeField] GameObject hurtUI;
     [SerializeField] GameObject enemyDamageZone;
+    private bool canRun = false;
 
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponentInParent<NavMeshAgent>();
-        chaseMusic.gameObject.SetActive(false);
+        
+        StartCoroutine(StartElements());
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyDamageZone.GetComponent<EnemyDamage>().hasDied == true)
+        if (canRun == true)
         {
-            chaseMusic.gameObject.SetActive(false);
-        }
 
-        distanceToPlayer = Vector3.Distance(player.position, enemy.transform.position);
-        if (distanceToPlayer < maxRange)
-        {
-            if (isChecking == true)
+
+            if (enemyDamageZone.GetComponent<EnemyDamage>().hasDied == true)
             {
-                isChecking = false;
-                blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
-                if (blocked == false)
-                {
-                   // Debug.Log("ICan see");
-                    runToPlayer = true;
-                    failedChecks = 0;
-                }
-                if (blocked == true)
-                {
-                    //Debug.Log("Where Did You Go");
-                    runToPlayer = false;
-                    anim.SetInteger("State", 1);
-                    failedChecks++;
-                }
-                StartCoroutine(TimedCheck());
-            }
-        }
-        if (runToPlayer == true)
-        {
-            enemy.GetComponent<EnemyMove>().enabled = false;
-            if (enemyDamageZone.GetComponent<EnemyDamage>().hasDied == false)
-            {
-                chaseMusic.gameObject.SetActive(true);
-            }
-           
-            if (distanceToPlayer > attackDistance)
-            {
-                nav.isStopped = false;
-                anim.SetInteger("State", 2);
-                nav.acceleration = 24;
-                nav.SetDestination(player.position);
-                nav.speed = chaseSpeed;
-                hurtUI.gameObject.SetActive(false);
+                chaseMusic.gameObject.SetActive(false);
             }
 
-            if (distanceToPlayer < attackDistance - 0.5f)
+            distanceToPlayer = Vector3.Distance(player.position, enemy.transform.position);
+            if (distanceToPlayer < maxRange)
+            {
+                if (isChecking == true)
+                {
+                    isChecking = false;
+                    blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
+                    if (blocked == false)
+                    {
+                        // Debug.Log("ICan see");
+                        runToPlayer = true;
+                        failedChecks = 0;
+                    }
+                    if (blocked == true)
+                    {
+                        //Debug.Log("Where Did You Go");
+                        runToPlayer = false;
+                        anim.SetInteger("State", 1);
+                        failedChecks++;
+                    }
+                    StartCoroutine(TimedCheck());
+                }
+            }
+            if (runToPlayer == true)
+            {
+                enemy.GetComponent<EnemyMove>().enabled = false;
+                if (enemyDamageZone.GetComponent<EnemyDamage>().hasDied == false)
+                {
+                    chaseMusic.gameObject.SetActive(true);
+                }
+
+                if (distanceToPlayer > attackDistance)
+                {
+                    nav.isStopped = false;
+                    anim.SetInteger("State", 2);
+                    nav.acceleration = 24;
+                    nav.SetDestination(player.position);
+                    nav.speed = chaseSpeed;
+                    hurtUI.gameObject.SetActive(false);
+                }
+
+                if (distanceToPlayer < attackDistance - 0.5f)
+                {
+                    nav.isStopped = true;
+                    // Debug.Log("I am Attacking");
+                    anim.SetInteger("State", 3);
+                    nav.acceleration = 180;
+                    Vector3 pos = (player.position - enemy.transform.position).normalized;
+                    Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
+                    enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, posRotation, Time.deltaTime * attackRotateSpeed);
+                    hurtUI.gameObject.SetActive(true);
+
+                }
+            }
+            else if (runToPlayer == false)
             {
                 nav.isStopped = true;
-               // Debug.Log("I am Attacking");
-                anim.SetInteger("State", 3);
-                nav.acceleration = 180;
-                Vector3 pos = (player.position - enemy.transform.position).normalized;
-                Quaternion posRotation = Quaternion.LookRotation(new Vector3(pos.x, 0, pos.z));
-                enemy.transform.rotation = Quaternion.Slerp(enemy.transform.rotation, posRotation, Time.deltaTime * attackRotateSpeed);
-                hurtUI.gameObject.SetActive(true);
-
             }
-        }
-        else if (runToPlayer == false)
-        {
-            nav.isStopped = true;
         }
     }
     private void OnTriggerEnter(Collider other)
@@ -141,5 +149,14 @@ public class EnemyAtack : MonoBehaviour
             chaseMusic.gameObject.SetActive(false);
         }
 
+    }
+    IEnumerator StartElements()
+    {
+        yield return new WaitForSeconds(0.1f);
+        player = SaveScripts.playerCar;
+        chaseMusic = SaveScripts.chase;
+        hurtUI = SaveScripts.hurtScreen;
+        chaseMusic.gameObject.SetActive(false);
+        canRun = true;
     }
 }

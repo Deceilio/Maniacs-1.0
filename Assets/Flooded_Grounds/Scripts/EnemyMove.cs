@@ -13,7 +13,7 @@ public class EnemyMove : MonoBehaviour
     private int targetNumber = 1;
     private bool hasStopped = false;
     [SerializeField] float stopDistance = 2.0f;
-    [SerializeField] int maxTargets = 7;
+    [SerializeField] int maxTargets = 10;
     [SerializeField] float waitTime = 2.0f;
     private bool randomizer = true;
     private int nextTargetNumber;
@@ -24,37 +24,46 @@ public class EnemyMove : MonoBehaviour
     [SerializeField] Transform target5;
     [SerializeField] Transform target6;
     [SerializeField] Transform target7;
-  
+    [SerializeField] Transform target8;
+    [SerializeField] Transform target9;
+    [SerializeField] Transform target10;
+    private bool canPatrol = false;
+
     // Start is called before the first frame update
     void Start()
     {
         nav = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
-        theTarget = target1;
-        
+        StartCoroutine(StartElements());
+       
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        distanceToTarget = Vector3.Distance(theTarget.position, transform.position);
-        if (distanceToTarget > stopDistance)
+        if (canPatrol == true)
         {
-            nav.SetDestination(theTarget.position);
-            anim.SetInteger("State", 0);
-            nav.isStopped = false;
-            nextTargetNumber = targetNumber;
-            nav.speed = 1.6f;
+
+            distanceToTarget = Vector3.Distance(theTarget.position, transform.position);
+            if (distanceToTarget > stopDistance)
+            {
+                nav.SetDestination(theTarget.position);
+                anim.SetInteger("State", 0);
+                nav.isStopped = false;
+                nextTargetNumber = targetNumber;
+                nav.speed = 1.6f;
+            }
+            if (distanceToTarget < stopDistance)
+            {
+                nav.isStopped = true;
+                anim.SetInteger("State", 1);
+                StartCoroutine(LookAround());
+
+
+            }
         }
-        if (distanceToTarget < stopDistance)
-        {
-            nav.isStopped = true;
-            anim.SetInteger("State", 1);
-            StartCoroutine(LookAround());
-           
-           
-        }
-        
 
     }
     void SetTarget()
@@ -87,6 +96,18 @@ public class EnemyMove : MonoBehaviour
         {
             theTarget = target7;
         }
+        if (targetNumber == 8)
+        {
+            theTarget = target8;
+        }
+        if (targetNumber == 9)
+        {
+            theTarget = target9;
+        }
+        if (targetNumber == 10)
+        {
+            theTarget = target10;
+        }
     }
     
     IEnumerator LookAround()
@@ -116,5 +137,24 @@ public class EnemyMove : MonoBehaviour
             hasStopped = false;
             randomizer = true;
         }
+    }
+
+    IEnumerator StartElements()
+    {
+        yield return new WaitForSeconds(0.1f);
+       
+        target1 = SaveScripts.target1;
+        target2 = SaveScripts.target2;
+        target3 = SaveScripts.target3;
+        target4 = SaveScripts.target4;
+        target5 = SaveScripts.target5;
+        target6 = SaveScripts.target6;
+        target7 = SaveScripts.target7;
+        target8 = SaveScripts.target8;
+        target9 = SaveScripts.target9;
+        target10 = SaveScripts.target10;
+        theTarget = target1;
+        nav.avoidancePriority = Random.Range(5, 55);
+        canPatrol = true;
     }
 }

@@ -32,9 +32,77 @@ public class SaveScripts : MonoBehaviour
     public static bool newGame = false;
     public static int bullets = 12;
     public static int arrows = 6;
+    public static Transform target1;
+    public static Transform target2;
+    public static Transform target3;
+    public static Transform target4;
+    public static Transform target5;
+    public static Transform target6;
+    public static Transform target7;
+    public static Transform target8;
+    public static Transform target9;
+    public static Transform target10;
+
+    public static Transform playerCar;
+    public static GameObject chase;
+    public static GameObject hurtScreen;
+    public static AudioSource stabSound;
+    public static GameObject splatKnife;
+    public static GameObject splatBat;
+    public static GameObject splatAxe;
+    public static Animator hurt;
+    public static AudioSource audioP;
+    public static GameObject arms;
+
+
+
+    [SerializeField] Transform _target1;
+    [SerializeField] Transform _target2;
+    [SerializeField] Transform _target3;
+    [SerializeField] Transform _target4;
+    [SerializeField] Transform _target5;
+    [SerializeField] Transform _target6;
+    [SerializeField] Transform _target7;
+    [SerializeField] Transform _target8;
+    [SerializeField] Transform _target9;
+    [SerializeField] Transform _target10;
+
+    [SerializeField] Transform playerPrefab;
+    [SerializeField] GameObject chaseMusic;
+    [SerializeField] GameObject hurtUI;
+    [SerializeField] AudioSource stabPlayer;
+    [SerializeField] GameObject bloodSplatKnife;
+    [SerializeField] GameObject bloodSplatBat;
+    [SerializeField] GameObject bloodSplatAxe;
+    [SerializeField] Animator hurtAnim;
+    [SerializeField] AudioSource myplayer;
+    [SerializeField] GameObject fpsArms;
 
     private void Start()
     {
+        target1 = _target1;
+        target2 = _target2;
+        target3 = _target3;
+        target4 = _target4;
+        target5 = _target5;
+        target6 = _target6;
+        target7 = _target7;
+        target8 = _target8;
+        target9 = _target9;
+        target10 =_target10;
+        playerCar = playerPrefab;
+        chase = chaseMusic;
+        hurtScreen = hurtUI;
+        stabSound = stabPlayer;
+        splatKnife = bloodSplatKnife;
+        splatBat = bloodSplatBat;
+        splatAxe = bloodSplatAxe;
+        hurt = hurtAnim;
+        audioP = myplayer;
+        arms = fpsArms;
+
+        
+
         if (newGame == true)
         {
             playerHealth = 100;

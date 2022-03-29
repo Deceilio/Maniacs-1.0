@@ -13,29 +13,33 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] GameObject bloodSplatKnife;
     [SerializeField] GameObject bloodSplatBat;
     [SerializeField] GameObject bloodSplatAxe;
+    private bool damageOn=false;
     // Start is called before the first frame update
     void Start()
     {
         myPlayer = GetComponent<AudioSource>();
         anim =GetComponentInParent <Animator>();
-        bloodSplatKnife.gameObject.SetActive(false);
-        bloodSplatAxe.gameObject.SetActive(false);
-        bloodSplatBat.gameObject.SetActive(false);
+        StartCoroutine(StartElements());
+       
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (enemyHealth <= 0)
+        if (damageOn == true)
         {
-            if (hasDied == false)
+            if (enemyHealth <= 0)
             {
-                anim.SetTrigger("Death");
-                anim.SetBool("IsDead", true);
-                hasDied = true;
-                Destroy(enemyObject, 15f);
+                if (hasDied == false)
+                {
+                    anim.SetTrigger("Death");
+                    anim.SetBool("IsDead", true);
+                    hasDied = true;
+                    Destroy(this.transform.parent.gameObject, 15f);
+                }
             }
-        }  
+        }
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -71,5 +75,17 @@ public class EnemyDamage : MonoBehaviour
             Destroy(other.gameObject, 0.05f);
 
         }
+    }
+    IEnumerator StartElements()
+    {
+        yield return new WaitForSeconds(0.1f);
+        stabPlayer = SaveScripts.stabSound;
+        bloodSplatKnife = SaveScripts.splatKnife;
+        bloodSplatBat = SaveScripts.splatBat;
+        bloodSplatAxe = SaveScripts.splatAxe;
+        bloodSplatKnife.gameObject.SetActive(false);
+        bloodSplatAxe.gameObject.SetActive(false);
+        bloodSplatBat.gameObject.SetActive(false);
+        damageOn = true;
     }
 }
