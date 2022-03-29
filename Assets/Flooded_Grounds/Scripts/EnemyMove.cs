@@ -44,6 +44,7 @@ public class EnemyMove : MonoBehaviour
             anim.SetInteger("State", 0);
             nav.isStopped = false;
             nextTargetNumber = targetNumber;
+            nav.speed = 1.6f;
         }
         if (distanceToTarget < stopDistance)
         {

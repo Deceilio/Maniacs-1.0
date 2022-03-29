@@ -23,7 +23,8 @@ public class InventoryScript : MonoBehaviour
     [SerializeField] GameObject crossbow;
     [SerializeField] GameObject gunUI;
     [SerializeField] GameObject bulletAmt;
-
+    [SerializeField] GameObject bowUI;
+    [SerializeField] GameObject bowAmt;
 
     [SerializeField] Animator anim;
     [SerializeField] GameObject optionsMenue;
@@ -188,6 +189,9 @@ public class InventoryScript : MonoBehaviour
                 SaveScripts.haveGun = false;
                 gunUI.gameObject.SetActive(false);
                 bulletAmt.gameObject.SetActive(false);
+                SaveScripts.haveCrossbow = false;
+                bowUI.gameObject.SetActive(false);
+                bowAmt.gameObject.SetActive(false);
             }
             else
             {
@@ -581,6 +585,8 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveKnife = false;
         SaveScripts.haveBat = false;
         SaveScripts.haveAxe = true;
+        SaveScripts.haveCrossbow = false;
+        SaveScripts.haveGun = false;
 
 
     }
@@ -595,6 +601,7 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveKnife = false;
         SaveScripts.haveBat = false;
         SaveScripts.haveAxe = false;
+        SaveScripts.haveCrossbow = false;
         gunUI.gameObject.SetActive(true);
         bulletAmt.gameObject.SetActive(true);
 
@@ -607,7 +614,13 @@ public class InventoryScript : MonoBehaviour
         anim.SetBool("Malee", false);
         myPlayer.clip = arrowShort;
         myPlayer.Play();
-
+        SaveScripts.haveGun = false;
+        SaveScripts.haveKnife = false;
+        SaveScripts.haveBat = false;
+        SaveScripts.haveAxe = false;
+        SaveScripts.haveCrossbow = true;
+        bowUI.gameObject.SetActive(true);
+        bowAmt.gameObject.SetActive(true);
 
     }
     public void WeaponsOff()
@@ -626,5 +639,16 @@ public class InventoryScript : MonoBehaviour
         {
             SaveScripts.bullets = 12;
         }
+    }
+    public void BowRefill()
+    {
+        SaveScripts.arrowRefill = false;
+        SaveScripts.arrows += 6;
+        if (SaveScripts.arrows > 6)
+        {
+            SaveScripts.arrows = 6;
+        }
+        myPlayer.clip = arrowShort;
+        myPlayer.Play();
     }
 }

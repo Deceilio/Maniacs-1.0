@@ -63,5 +63,13 @@ public class EnemyDamage : MonoBehaviour
             bloodSplatAxe.gameObject.SetActive(true);
 
         }
+        if (other.gameObject.CompareTag("PCrossbow"))
+        {
+            enemyHealth -= 50;
+            myPlayer.Play();
+            stabPlayer.Play();
+            Destroy(other.gameObject, 0.05f);
+
+        }
     }
 }

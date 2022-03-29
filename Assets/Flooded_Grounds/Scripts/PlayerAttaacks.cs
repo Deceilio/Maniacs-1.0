@@ -13,6 +13,7 @@ public class PlayerAttaacks : MonoBehaviour
     [SerializeField] GameObject pointer;
     private AudioSource myplayer;
     [SerializeField] AudioClip gunShortSound;
+    [SerializeField] AudioClip bowShortSound;
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +117,33 @@ public class PlayerAttaacks : MonoBehaviour
 
 
             }
+            if (SaveScripts.haveCrossbow == true)
+            {
+                if (Input.GetKey(KeyCode.Mouse1))
+                {
+                    anim.SetBool("AimGun", true);
+                    crosshair.gameObject.SetActive(true);
+                    pointer.gameObject.SetActive(false);
+                }
+                if (Input.GetKeyUp(KeyCode.Mouse1))
+                {
+                    anim.SetBool("AimGun", false);
+                    crosshair.gameObject.SetActive(false);
+
+                    pointer.gameObject.SetActive(true);
+                }
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                {
+                    if (SaveScripts.arrows> 0)
+                    {
+                        myplayer.clip = bowShortSound;
+                        myplayer.Play();
+                    }
+                }
+
+
+            }
+
         }
     }
 
