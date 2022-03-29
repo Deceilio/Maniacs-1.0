@@ -36,6 +36,7 @@ public class EnemyDamage : MonoBehaviour
                     anim.SetTrigger("Death");
                     anim.SetBool("IsDead", true);
                     hasDied = true;
+                    SaveScripts.enemyOnScreen--;
                     Destroy(this.transform.parent.gameObject, 15f);
                 }
             }
