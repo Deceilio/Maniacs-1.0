@@ -9,6 +9,11 @@ public class EnemyWeaponDamage : MonoBehaviour
     [SerializeField] AudioSource myplayer;
     private bool hitActive = false;
     [SerializeField] GameObject fpsArms;
+
+    private void Start()
+    {
+        StartCoroutine(StartElements());
+    }
     // Start is called before the first frame update
     private void OnTriggerEnter(Collider other)
     {
@@ -38,5 +43,12 @@ public class EnemyWeaponDamage : MonoBehaviour
             }
         }
 
+    }
+    IEnumerator StartElements()
+    {
+        yield return new WaitForSeconds(0.1f);
+        hurtAnim = SaveScripts.hurt;
+        myplayer = SaveScripts.audioP;
+        fpsArms = SaveScripts.arms;
     }
 }
