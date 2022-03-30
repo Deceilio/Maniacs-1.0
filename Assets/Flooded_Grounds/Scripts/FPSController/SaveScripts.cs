@@ -62,6 +62,7 @@ public class SaveScripts : MonoBehaviour
     public static int ammoLeft = 4;
     public static int batteryLeft = 6;
     public static int bowLeft = 4;
+    public static int enemy1 = 1;
 
 
     [SerializeField] Transform _target1;
@@ -141,6 +142,7 @@ public class SaveScripts : MonoBehaviour
             ammoLeft = 4;
             batteryLeft = 6;
             bowLeft = 3;
+            enemy1 = 1;
    
    
         }
@@ -161,6 +163,7 @@ public class SaveScripts : MonoBehaviour
             ammoLeft = PlayerPrefs.GetInt("AmmoL");
             batteryLeft = PlayerPrefs.GetInt("BatteryL");
             bowLeft = PlayerPrefs.GetInt("BowL");
+            enemy1 = PlayerPrefs.GetInt("Enemy1Alive");
 
             if (PlayerPrefs.GetInt("KnifeInv") == 1)
             {
