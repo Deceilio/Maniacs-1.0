@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SaveScripts : MonoBehaviour
 {
-    public static int playerHealth = 1000;
+    public static int playerHealth = 100;
     public static bool healthChanged = false;
     public static float batteryPower=1.0f;
 
@@ -55,6 +55,8 @@ public class SaveScripts : MonoBehaviour
     public static GameObject arms;
     public static int maxEnemyOnScreen = 6;
     public static int enemyOnScreen = 0;
+    public static int maxEnemiesInGame = 100;
+    public static int enemiesCurrent = 0;
 
 
 

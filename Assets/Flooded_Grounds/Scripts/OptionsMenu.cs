@@ -68,6 +68,21 @@ public class OptionsMenu : MonoBehaviour
     {
         sfxMixer.SetFloat("Volume", sfxLevel.value);
     }
+    public void Easy()
+    {
+        SaveScripts.maxEnemyOnScreen = 6;
+        SaveScripts.maxEnemiesInGame = 100;
+    }
+    public void Medium()
+    {
+        SaveScripts.maxEnemyOnScreen = 10;
+        SaveScripts.maxEnemiesInGame = 300;
+    }
+    public void Hard()
+    {
+        SaveScripts.maxEnemyOnScreen = 15;
+        SaveScripts.maxEnemiesInGame = 500;
+    }
     public void FogState()
     {
         if (fogToggle.isOn == true)

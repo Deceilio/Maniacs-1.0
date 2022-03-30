@@ -17,23 +17,31 @@ public class Spawner : MonoBehaviour
     {
         Debug.Log(SaveScripts.enemyOnScreen);
         if (other.gameObject.CompareTag("Player"))
-        {
-            if (SaveScripts.enemyOnScreen < SaveScripts.maxEnemyOnScreen)
+        { 
+            if (SaveScripts.enemiesCurrent < SaveScripts.maxEnemiesInGame)
             {
-                if (canSpawn == true)
-                {
-                    canSpawn = false;
-                    Instantiate(enemySpawn1, spawnPoint1.position, spawnPoint1.rotation);
-                    SaveScripts.enemyOnScreen++;
-                    Instantiate(enemySpawn2, spawnPoint2.position, spawnPoint2.rotation);
-                    SaveScripts.enemyOnScreen++;
-                    Instantiate(enemySpawn3, spawnPoint3.position, spawnPoint3.rotation);
-                    SaveScripts.enemyOnScreen++;
-                    if (retriggerable == true)
-                    {
-                        StartCoroutine(WaitToSpawn());
-                    }
 
+
+                if (SaveScripts.enemyOnScreen < SaveScripts.maxEnemyOnScreen)
+                {
+                    if (canSpawn == true)
+                    {
+                        canSpawn = false;
+                        Instantiate(enemySpawn1, spawnPoint1.position, spawnPoint1.rotation);
+                        SaveScripts.enemyOnScreen++;
+                        SaveScripts.enemiesCurrent++;
+                        Instantiate(enemySpawn2, spawnPoint2.position, spawnPoint2.rotation);
+                        SaveScripts.enemyOnScreen++;
+                        SaveScripts.enemiesCurrent++;
+                        Instantiate(enemySpawn3, spawnPoint3.position, spawnPoint3.rotation);
+                        SaveScripts.enemyOnScreen++;
+                        SaveScripts.enemiesCurrent++;
+                        if (retriggerable == true)
+                        {
+                            StartCoroutine(WaitToSpawn());
+                        }
+
+                    }
                 }
             }
            
