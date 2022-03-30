@@ -144,4 +144,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c1d8c069b73594449a852b31f200cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  batteryNumber: 0
+  batteryNumber: 1

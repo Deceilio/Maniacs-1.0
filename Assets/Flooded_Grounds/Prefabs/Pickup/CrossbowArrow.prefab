@@ -660,7 +660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ee215915bbcca941b040d8729a3492d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bowNumber: 0
+  bowNumber: 1
 --- !u!1 &4955801581333246386
 GameObject:
   m_ObjectHideFlags: 0

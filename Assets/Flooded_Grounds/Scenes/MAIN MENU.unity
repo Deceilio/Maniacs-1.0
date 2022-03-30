@@ -582,7 +582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1139885288404692, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1227500679364594, guid: 5ebad8a41bbacbe419403ab6a0c52078, type: 3}
       propertyPath: m_IsActive
@@ -598,6 +598,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 859b65156fbcb164e979b80248f408a5,
         type: 3}
+    - target: {fileID: 114324633318724984, guid: 5ebad8a41bbacbe419403ab6a0c52078,
+        type: 3}
+      propertyPath: m_Text
+      value: 'Important  Information:
+
+
+        Option Menu: [ O ]
+
+        Inventory
+        Menu:[ I ]
+
+
+        <Credits in Option Menu>
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 114406594192039836, guid: 5ebad8a41bbacbe419403ab6a0c52078,
         type: 3}
       propertyPath: m_Sprite

@@ -43,7 +43,11 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("AmmoL", SaveScripts.ammoLeft);
         PlayerPrefs.SetInt("BatteryL", SaveScripts.batteryLeft);
         PlayerPrefs.SetInt("BowL", SaveScripts.bowLeft);
-        PlayerPrefs.SetInt("Enemy1Alive", SaveScripts.enemy1); 
+        PlayerPrefs.SetInt("Enemy1Alive", SaveScripts.enemy1);
+        PlayerPrefs.SetInt("Enemy2Alive", SaveScripts.enemy2);
+        PlayerPrefs.SetInt("Enemy3Alive", SaveScripts.enemy3);
+        PlayerPrefs.SetInt("Enemy4Alive", SaveScripts.enemy4);
+
         if (SaveScripts.knife == true)
             PlayerPrefs.SetInt("KnifeInv", 1);
         if (SaveScripts.bat== true)

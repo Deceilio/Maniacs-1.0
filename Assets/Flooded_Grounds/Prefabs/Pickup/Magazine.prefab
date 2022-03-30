@@ -41,7 +41,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c0079bb862e1224e9924f15d25201f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoNumber: 0
+  ammoNumber: 1
 --- !u!95 &344506978
 Animator:
   serializedVersion: 3
@@ -184,7 +184,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688796160857414, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_Name
-      value: 'Magazine '
+      value: Magazine
       objectReference: {fileID: 0}
     - target: {fileID: 1688796160857414, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_TagString
@@ -208,15 +208,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000101247158624, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 467.13
+      value: 462.8012
       objectReference: {fileID: 0}
     - target: {fileID: 4000101247158624, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 17.77
+      value: 16.50003
       objectReference: {fileID: 0}
     - target: {fileID: 4000101247158624, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 412.63
+      value: 415.3219
       objectReference: {fileID: 0}
     - target: {fileID: 4000101247158624, guid: 71d42f13891e48c4487496fd15802eda, type: 3}
       propertyPath: m_LocalRotation.w

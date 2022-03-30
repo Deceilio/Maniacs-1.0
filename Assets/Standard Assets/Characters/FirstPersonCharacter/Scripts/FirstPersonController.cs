@@ -78,7 +78,7 @@ namespace UnityStandardAssets.Characters.FirstPerson
         // Update is called once per frame
         private void Update()
         {
-            Debug.Log(stamina);
+           // Debug.Log(stamina);
 
             if (lightBreath == false)
             {

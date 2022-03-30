@@ -13,6 +13,9 @@ public class Reload : MonoBehaviour
     [SerializeField] GameObject houseKey;
     [SerializeField] GameObject roomKey;
     [SerializeField] GameObject enemy1;
+    [SerializeField] GameObject enemy2;
+    [SerializeField] GameObject enemy3;
+    [SerializeField] GameObject enemy4;
 
     // Start is called before the first frame update
     void Start()
@@ -63,6 +66,19 @@ public class Reload : MonoBehaviour
         if (SaveScripts.enemy1 == 0)
         {
             Destroy(enemy1.gameObject);
+        }
+        if (SaveScripts.enemy2 == 0)
+        {
+            Destroy(enemy2.gameObject);
+        }
+        if (SaveScripts.enemy3 == 0)
+        {
+            Destroy(enemy3.gameObject);
+        }
+        
+        if (SaveScripts.enemy4 == 0)
+        {
+            Destroy(enemy4.gameObject);
         }
 
 

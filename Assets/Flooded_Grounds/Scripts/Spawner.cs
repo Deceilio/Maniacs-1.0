@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
     private bool canSpawn = true;
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(SaveScripts.enemyOnScreen);
+       // Debug.Log(SaveScripts.enemyOnScreen);
         if (other.gameObject.CompareTag("Player"))
         { 
             if (SaveScripts.enemiesCurrent < SaveScripts.maxEnemiesInGame)

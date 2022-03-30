@@ -33,6 +33,7 @@ public class SaveScripts : MonoBehaviour
     public static bool savedGame = false;
     public static int bullets = 12;
     public static int arrows = 6;
+    
     public static Transform target1;
     public static Transform target2;
     public static Transform target3;
@@ -59,10 +60,13 @@ public class SaveScripts : MonoBehaviour
     public static int maxEnemiesInGame = 100;
     public static int enemiesCurrent = 0;
     public static int applesLeft = 10;
-    public static int ammoLeft = 4;
+    public static int ammoLeft = 8;
     public static int batteryLeft = 6;
     public static int bowLeft = 4;
     public static int enemy1 = 1;
+    public static int enemy2 = 1;
+    public static int enemy3 = 1;
+    public static int enemy4 = 1;
 
 
     [SerializeField] Transform _target1;
@@ -139,12 +143,15 @@ public class SaveScripts : MonoBehaviour
              haveAxe = false;
             newGame = false;
             applesLeft = 10;
-            ammoLeft = 4;
+            ammoLeft = 8;
             batteryLeft = 6;
-            bowLeft = 3;
+            bowLeft = 4;
             enemy1 = 1;
-   
-   
+            enemy2 = 1;
+            enemy3 = 1;
+            enemy4 = 1;
+
+
         }
 
         if (savedGame == true)
@@ -164,6 +171,9 @@ public class SaveScripts : MonoBehaviour
             batteryLeft = PlayerPrefs.GetInt("BatteryL");
             bowLeft = PlayerPrefs.GetInt("BowL");
             enemy1 = PlayerPrefs.GetInt("Enemy1Alive");
+            enemy2 = PlayerPrefs.GetInt("Enemy2Alive");
+            enemy3 = PlayerPrefs.GetInt("Enemy3Alive");
+            enemy4 = PlayerPrefs.GetInt("Enemy4Alive");
 
             if (PlayerPrefs.GetInt("KnifeInv") == 1)
             {
