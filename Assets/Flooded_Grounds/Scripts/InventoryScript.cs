@@ -521,7 +521,7 @@ public class InventoryScript : MonoBehaviour
     public void HealthUpdate()
     {  if(SaveScripts.playerHealth <100)
         {
-            SaveScripts.playerHealth += 10;
+            SaveScripts.playerHealth += 40;
             SaveScripts.healthChanged = true;
             SaveScripts.apples -= 1;
             myPlayer.clip = appleBite;

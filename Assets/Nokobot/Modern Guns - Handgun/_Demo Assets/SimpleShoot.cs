@@ -24,9 +24,12 @@ public class SimpleShoot : MonoBehaviour
         //If you want a different input, change it here
         if (Input.GetButtonDown("Fire1"))
         {
-            if (SaveScripts.bullets > 0)
+            if (SaveScripts.inventoryOpen == false && SaveScripts.optionOpen == false)
             {
-                GetComponent<Animator>().SetTrigger("Fire");
+                if (SaveScripts.bullets > 0)
+                {
+                    GetComponent<Animator>().SetTrigger("Fire");
+                }
             }
         }
     }

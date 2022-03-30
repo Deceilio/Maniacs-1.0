@@ -46,7 +46,7 @@ public class EnemyDamage : MonoBehaviour
     {
         if (other.gameObject.CompareTag("PKnife"))
         {
-            enemyHealth -= 10;
+            enemyHealth -= 30;
             myPlayer.Play();
             stabPlayer.Play();
             bloodSplatKnife.gameObject.SetActive(true);
@@ -54,7 +54,7 @@ public class EnemyDamage : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PBat"))
         {
-            enemyHealth -= 15;
+            enemyHealth -= 25;
             myPlayer.Play();
             stabPlayer.Play();
             bloodSplatBat.gameObject.SetActive(true);
@@ -62,7 +62,7 @@ public class EnemyDamage : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PAxe"))
         {
-            enemyHealth -= 20;
+            enemyHealth -= 50;
             myPlayer.Play();
             stabPlayer.Play();
             bloodSplatAxe.gameObject.SetActive(true);
