@@ -91,7 +91,9 @@ public class PickUpScript : MonoBehaviour
                     if (SaveScripts.gunMag < 4)
                     {
                         Destroy(hit.transform.gameObject);
-                        SaveScripts.gunMag += 1;
+                        
+                        SaveScripts.gunMag ++;
+                        SaveScripts.ammoLeft--;
                         myplayer.Play();
                     }
 
@@ -107,6 +109,7 @@ public class PickUpScript : MonoBehaviour
                     {
                         Destroy(hit.transform.gameObject);
                         SaveScripts.arrowRefill = true;
+                        SaveScripts.bowLeft--;
                         myplayer.Play();
                     }
 
@@ -243,6 +246,7 @@ public class PickUpScript : MonoBehaviour
                         Destroy(hit.transform.gameObject);
 
                         SaveScripts.batteryes += 1;
+                        SaveScripts.batteryLeft--;
                         myplayer.Play();
                     }
 

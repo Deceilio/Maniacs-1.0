@@ -587,6 +587,7 @@ GameObject:
   - component: {fileID: 4958864485152925812}
   - component: {fileID: 4900800043379845616}
   - component: {fileID: 4911341142841207418}
+  - component: {fileID: 6440053022702195561}
   m_Layer: 0
   m_Name: CrossbowArrow
   m_TagString: Arrow
@@ -601,7 +602,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4955268045230713090}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 601.0004, y: 16.524, z: 308.48196}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -647,6 +648,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.2, z: 1.68}
   m_Center: {x: 0, y: 0, z: 0.1707139}
+--- !u!114 &6440053022702195561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4955268045230713090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ee215915bbcca941b040d8729a3492d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bowNumber: 0
 --- !u!1 &4955801581333246386
 GameObject:
   m_ObjectHideFlags: 0

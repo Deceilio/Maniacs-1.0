@@ -59,7 +59,9 @@ public class SaveScripts : MonoBehaviour
     public static int maxEnemiesInGame = 100;
     public static int enemiesCurrent = 0;
     public static int applesLeft = 10;
-
+    public static int ammoLeft = 4;
+    public static int batteryLeft = 6;
+    public static int bowLeft = 4;
 
 
     [SerializeField] Transform _target1;
@@ -136,6 +138,9 @@ public class SaveScripts : MonoBehaviour
              haveAxe = false;
             newGame = false;
             applesLeft = 10;
+            ammoLeft = 4;
+            batteryLeft = 6;
+            bowLeft = 3;
    
    
         }
@@ -153,6 +158,9 @@ public class SaveScripts : MonoBehaviour
             maxEnemyOnScreen = PlayerPrefs.GetInt("MaxEScreen");
             maxEnemiesInGame = PlayerPrefs.GetInt("MaxEGame");
             applesLeft = PlayerPrefs.GetInt("ApplesL");
+            ammoLeft = PlayerPrefs.GetInt("AmmoL");
+            batteryLeft = PlayerPrefs.GetInt("BatteryL");
+            bowLeft = PlayerPrefs.GetInt("BowL");
 
             if (PlayerPrefs.GetInt("KnifeInv") == 1)
             {

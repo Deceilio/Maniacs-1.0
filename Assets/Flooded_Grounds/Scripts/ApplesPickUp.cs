@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ApplesPickUp : MonoBehaviour
+public class AmmoPickUp : MonoBehaviour
 {
-    [SerializeField] int appleNumber;
+    [SerializeField] int ammoNumber;
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(CheckApples());
+        StartCoroutine(CheckAmmo());
     }
 
-   IEnumerator CheckApples()
+   IEnumerator CheckAmmo()
     {
         yield return new WaitForSeconds(1);
-        if (appleNumber > SaveScripts.applesLeft)
+        if (ammoNumber > SaveScripts.ammoLeft)
         {
             Destroy(gameObject);
         }

@@ -40,6 +40,9 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("MaxEScreen", SaveScripts.maxEnemyOnScreen);
         PlayerPrefs.SetInt("MaxEGame", SaveScripts.maxEnemiesInGame);
         PlayerPrefs.SetInt("ApplesL", SaveScripts.applesLeft);
+        PlayerPrefs.SetInt("AmmoL", SaveScripts.ammoLeft);
+        PlayerPrefs.SetInt("BatteryL", SaveScripts.batteryLeft);
+        PlayerPrefs.SetInt("BowL", SaveScripts.bowLeft);
         if (SaveScripts.knife == true)
             PlayerPrefs.SetInt("KnifeInv", 1);
         if (SaveScripts.bat== true)
