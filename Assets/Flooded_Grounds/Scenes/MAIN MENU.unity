@@ -776,6 +776,7 @@ GameObject:
   - component: {fileID: 1547888319}
   - component: {fileID: 1547888318}
   - component: {fileID: 1547888322}
+  - component: {fileID: 1547888323}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -876,6 +877,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45cb780c7b09cff45bacbf7f899c6046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _target1: {fileID: 0}
+  _target2: {fileID: 0}
+  _target3: {fileID: 0}
+  _target4: {fileID: 0}
+  _target5: {fileID: 0}
+  _target6: {fileID: 0}
+  _target7: {fileID: 0}
+  _target8: {fileID: 0}
+  _target9: {fileID: 0}
+  _target10: {fileID: 0}
+  playerPrefab: {fileID: 0}
+  chaseMusic: {fileID: 0}
+  hurtUI: {fileID: 0}
+  stabPlayer: {fileID: 0}
+  bloodSplatKnife: {fileID: 0}
+  bloodSplatBat: {fileID: 0}
+  bloodSplatAxe: {fileID: 0}
+  hurtAnim: {fileID: 0}
+  myplayer: {fileID: 0}
+  fpsArms: {fileID: 0}
+--- !u!114 &1547888323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1547888317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d854cfd2a99143640a3d3ff9f452f76f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dataExists: 10
+  loadButton: {fileID: 1804157109}
 --- !u!1 &1651075574
 GameObject:
   m_ObjectHideFlags: 0
@@ -960,7 +995,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1804157110
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1023,7 +1058,29 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1804157112}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1547888323}
+        m_MethodName: LoadGameData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 160365259}
+        m_MethodName: loadingScreen
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1804157112
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -30,6 +30,7 @@ public class SaveScripts : MonoBehaviour
     public static bool haveCrossbow = false;
     public static bool haveAxe = false;
     public static bool newGame = false;
+    public static bool savedGame = false;
     public static int bullets = 12;
     public static int arrows = 6;
     public static Transform target1;
@@ -109,31 +110,86 @@ public class SaveScripts : MonoBehaviour
 
         if (newGame == true)
         {
-            playerHealth = 100;
-   healthChanged = false;
-     batteryPower = 1.0f;
+             playerHealth = 100;
+             healthChanged = true;
+             batteryPower = 1.0f;
 
-     batteryRefill = false;
-    flashLightOn = false;
-     nVLightOn = false;
+             batteryRefill = false;
+             flashLightOn = false;
+             nVLightOn = false;
 
-    apples = 0;
-    batteryes = 0;
-    gunMag = 0;
-     arrowRefill = false;
-     cabinKey = false;
-     roomKey = false;
-     houseKey = false;
-     knife = false;
-     axe = false;
-    bat = false;
-     gun = false;
-     crossbow = false;
-     haveKnife = false;
-    haveBat = false;
-     haveAxe = false;
+             apples = 0;
+             batteryes = 0;
+             gunMag = 0;
+             arrowRefill = false;
+             cabinKey = false;
+             roomKey = false;
+             houseKey = false;
+             knife = false;
+             axe = false;
+             bat = false;
+             gun = false;
+             crossbow = false;
+             haveKnife = false;
+             haveBat = false;
+             haveAxe = false;
+            newGame = false;
    
-}
+   
+        }
+
+        if (savedGame == true)
+        {
+            playerHealth = PlayerPrefs.GetInt("PlayersHealth");
+            healthChanged = true;
+            batteryPower = PlayerPrefs.GetFloat("BatteriesPower");
+            apples = PlayerPrefs.GetInt("ApplesAmt");
+            batteryes = PlayerPrefs.GetInt("BatteriesAmt");
+            gunMag = PlayerPrefs.GetInt("BulletsClips");
+            bullets = PlayerPrefs.GetInt("BulletAmt");
+            arrows = PlayerPrefs.GetInt("ArrowsAmt");
+            maxEnemyOnScreen = PlayerPrefs.GetInt("MaxEScreen");
+            maxEnemiesInGame = PlayerPrefs.GetInt("MaxEGame");
+
+            if (PlayerPrefs.GetInt("KnifeInv") == 1)
+            {
+                knife = true;
+            }
+            if (PlayerPrefs.GetInt("BatInv") == 1)
+            {
+                bat = true;
+            }
+            if (PlayerPrefs.GetInt("AxeInv") == 1)
+            {
+                axe = true;
+            }
+            if (PlayerPrefs.GetInt("GunInv") == 1)
+            {
+                gun = true;
+            }
+            if (PlayerPrefs.GetInt("CrossbowInv") == 1)
+            {
+                crossbow = true;
+            }
+            if (PlayerPrefs.GetInt("CabinK") == 1)
+            {
+                cabinKey= true;
+            }
+            if (PlayerPrefs.GetInt("RoomK") == 1)
+            {
+                roomKey = true;
+            }
+            if (PlayerPrefs.GetInt("HouseK") == 1)
+            {
+                houseKey= true;
+            }
+            if (PlayerPrefs.GetInt("ArrowR") == 1)
+            {
+                arrowRefill = true;
+            }
+            savedGame = false;
+
+        }
     }
 
 }
