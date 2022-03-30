@@ -11,11 +11,14 @@ public class SaveLoad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        loadButton.gameObject.SetActive(false);
-        dataExists = PlayerPrefs.GetInt("PlayersHealth", 0);
-        if (dataExists > 0)
+        if (loadButton != null)
         {
-            loadButton.gameObject.SetActive(true);
+            loadButton.gameObject.SetActive(false);
+            dataExists = PlayerPrefs.GetInt("PlayersHealth", 0);
+            if (dataExists > 0)
+            {
+                loadButton.gameObject.SetActive(true);
+            }
         }
     }
 
@@ -36,6 +39,7 @@ public class SaveLoad : MonoBehaviour
         PlayerPrefs.SetInt("ArrowsAmt", SaveScripts.arrows);
         PlayerPrefs.SetInt("MaxEScreen", SaveScripts.maxEnemyOnScreen);
         PlayerPrefs.SetInt("MaxEGame", SaveScripts.maxEnemiesInGame);
+        PlayerPrefs.SetInt("ApplesL", SaveScripts.applesLeft);
         if (SaveScripts.knife == true)
             PlayerPrefs.SetInt("KnifeInv", 1);
         if (SaveScripts.bat== true)

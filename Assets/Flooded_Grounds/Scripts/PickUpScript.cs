@@ -38,20 +38,7 @@ public class PickUpScript : MonoBehaviour
     {  // pickup massage scripts using raycast
         if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
         {
-            if(hit.transform.tag == "Apple")
-            {
-                canSeePickup = true;
-                if(Input.GetKeyDown(KeyCode.E))
-                {
-                    if (SaveScripts.apples < 6)
-                    {
-                        Destroy(hit.transform.gameObject);
-                        SaveScripts.apples += 1;
-                        myplayer.Play();
-                    }
-                   
-                }
-            }
+           
             if (hit.transform.tag == "Door")
             {
                 canSeeDoor = true;
@@ -78,7 +65,23 @@ public class PickUpScript : MonoBehaviour
                     doorText.text = "You need the " + hit.transform.gameObject.GetComponent<DoorScript>().doorType + " key";
                 }
             }
-          
+
+            else if (hit.transform.tag == "Apple")
+            {
+                canSeePickup = true;
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    if (SaveScripts.apples < 6)
+                    {
+                        Destroy(hit.transform.gameObject);
+                        SaveScripts.applesLeft--;
+                        SaveScripts.apples += 1;
+                        myplayer.Play();
+                    }
+
+                }
+            }
+
 
             else if (hit.transform.tag == "GunMag")
             {

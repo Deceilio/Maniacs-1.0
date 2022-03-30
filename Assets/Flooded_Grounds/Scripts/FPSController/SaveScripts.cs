@@ -58,6 +58,7 @@ public class SaveScripts : MonoBehaviour
     public static int enemyOnScreen = 0;
     public static int maxEnemiesInGame = 100;
     public static int enemiesCurrent = 0;
+    public static int applesLeft = 10;
 
 
 
@@ -134,6 +135,7 @@ public class SaveScripts : MonoBehaviour
              haveBat = false;
              haveAxe = false;
             newGame = false;
+            applesLeft = 10;
    
    
         }
@@ -150,6 +152,7 @@ public class SaveScripts : MonoBehaviour
             arrows = PlayerPrefs.GetInt("ArrowsAmt");
             maxEnemyOnScreen = PlayerPrefs.GetInt("MaxEScreen");
             maxEnemiesInGame = PlayerPrefs.GetInt("MaxEGame");
+            applesLeft = PlayerPrefs.GetInt("ApplesL");
 
             if (PlayerPrefs.GetInt("KnifeInv") == 1)
             {

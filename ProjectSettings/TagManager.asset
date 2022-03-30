@@ -23,6 +23,7 @@ TagManager:
   - PBat
   - PGun
   - PCrossbow
+  - Apples
   layers:
   - Default
   - TransparentFX
