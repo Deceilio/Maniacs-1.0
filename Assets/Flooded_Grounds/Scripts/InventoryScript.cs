@@ -165,12 +165,14 @@ public class InventoryScript : MonoBehaviour
             if (optionsActive == false)
             {
                 optionsMenue.gameObject.SetActive(true);
+                SaveScripts.optionOpen = true;
                 optionsActive = true;
             }
             else if (optionsActive == true)
             {
                 optionsMenue.gameObject.SetActive(false);
                 Cursor.visible = false;
+                SaveScripts.optionOpen = false;
                 Time.timeScale = 1;
                 optionsActive = false;
             }
@@ -179,24 +181,18 @@ public class InventoryScript : MonoBehaviour
         {
             if (myInventoryActive == false)
             {
-                myInventoryActive = true;
                 inventoryPannel.gameObject.SetActive(true);
+                myInventoryActive = true;
+                SaveScripts.inventoryOpen = true;
                 Time.timeScale = 0.0f;
                 Cursor.visible = true;
-                SaveScripts.haveKnife = false;
-                SaveScripts.haveBat = false;
-                SaveScripts.haveAxe = false;
-                SaveScripts.haveGun = false;
-                gunUI.gameObject.SetActive(false);
-                bulletAmt.gameObject.SetActive(false);
-                SaveScripts.haveCrossbow = false;
-                bowUI.gameObject.SetActive(false);
-                bowAmt.gameObject.SetActive(false);
+               
             }
             else
             {
-                myInventoryActive = false;
                 inventoryPannel.gameObject.SetActive(false);
+                myInventoryActive = false;
+                SaveScripts.inventoryOpen = false;
                 Time.timeScale = 1.0f;
                 Cursor.visible = false;
                     
@@ -559,8 +555,12 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveKnife = true;
         SaveScripts.haveBat = false;
         SaveScripts.haveAxe = false;
-
-
+        SaveScripts.haveCrossbow = false;
+        SaveScripts.haveGun = false;
+        gunUI.gameObject.SetActive(false);
+        bulletAmt.gameObject.SetActive(false);
+        bowUI.gameObject.SetActive(false);
+        bowAmt.gameObject.SetActive(false);
     }
     public void AssignBat()
     {
@@ -572,8 +572,12 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveKnife = false;
         SaveScripts.haveBat = true;
         SaveScripts.haveAxe = false;
-
-
+        SaveScripts.haveCrossbow = false;
+        SaveScripts.haveGun = false;
+        gunUI.gameObject.SetActive(false);
+        bulletAmt.gameObject.SetActive(false);
+        bowUI.gameObject.SetActive(false);
+        bowAmt.gameObject.SetActive(false);
     }
     public void AssignAxe()
     {
@@ -587,7 +591,10 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveAxe = true;
         SaveScripts.haveCrossbow = false;
         SaveScripts.haveGun = false;
-
+        gunUI.gameObject.SetActive(false);
+        bulletAmt.gameObject.SetActive(false);
+        bowUI.gameObject.SetActive(false);
+        bowAmt.gameObject.SetActive(false);
 
     }
     public void AssignGun()
@@ -604,6 +611,8 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveCrossbow = false;
         gunUI.gameObject.SetActive(true);
         bulletAmt.gameObject.SetActive(true);
+        bowUI.gameObject.SetActive(false);
+        bowAmt.gameObject.SetActive(false);
 
 
     }
@@ -621,6 +630,8 @@ public class InventoryScript : MonoBehaviour
         SaveScripts.haveCrossbow = true;
         bowUI.gameObject.SetActive(true);
         bowAmt.gameObject.SetActive(true);
+        gunUI.gameObject.SetActive(false);
+        bulletAmt.gameObject.SetActive(false);
 
     }
     public void WeaponsOff()

@@ -18,10 +18,14 @@ public class GunUIScripts : MonoBehaviour
         bulletAmt.text = SaveScripts.bullets + "";
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (SaveScripts.bullets > 0)
+            if (SaveScripts.inventoryOpen == false && SaveScripts.optionOpen == false)
             {
-                SaveScripts.bullets -= 1;
-                
+
+                if (SaveScripts.bullets > 0)
+                {
+                    SaveScripts.bullets -= 1;
+
+                }
             }
         }
     }

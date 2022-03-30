@@ -41,109 +41,112 @@ public class PlayerAttaacks : MonoBehaviour
         }
         if (attackStamina > 3.0)
         {
+            if (SaveScripts.inventoryOpen == false && SaveScripts.optionOpen == false)
+            {
 
-            if (SaveScripts.haveKnife == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
+                if (SaveScripts.haveKnife == true)
                 {
-                    anim.SetTrigger("KnifeLMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-            if (SaveScripts.haveKnife == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    anim.SetTrigger("KnifeRMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-            if (SaveScripts.haveBat == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    anim.SetTrigger("BatLMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-            if (SaveScripts.haveBat == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    anim.SetTrigger("BatRMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-            if (SaveScripts.haveAxe == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    anim.SetTrigger("AxeLMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-            if (SaveScripts.haveAxe == true)
-            {
-                if (Input.GetKeyDown(KeyCode.Mouse1))
-                {
-                    anim.SetTrigger("AxeRMB");
-                    attackStamina -= attackDrain;
-                }
-            }
-
-            if (SaveScripts.haveGun == true)
-            {
-                if (Input.GetKey(KeyCode.Mouse1))
-                {
-                    anim.SetBool("AimGun", true);
-                    crosshair.gameObject.SetActive(true);
-                    pointer.gameObject.SetActive(false);
-                }
-                if (Input.GetKeyUp(KeyCode.Mouse1))
-                {
-                    anim.SetBool("AimGun", false);
-                    crosshair.gameObject.SetActive(false);
-
-                    pointer.gameObject.SetActive(true);
-                }
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    if (SaveScripts.bullets > 0)
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
                     {
-                        myplayer.clip = gunShortSound;
-                        myplayer.Play();
+                        anim.SetTrigger("KnifeLMB");
+                        attackStamina -= attackDrain;
+                    }
+                }
+                if (SaveScripts.haveKnife == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        anim.SetTrigger("KnifeRMB");
+                        attackStamina -= attackDrain;
+                    }
+                }
+                if (SaveScripts.haveBat == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        anim.SetTrigger("BatLMB");
+                        attackStamina -= attackDrain;
+                    }
+                }
+                if (SaveScripts.haveBat == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        anim.SetTrigger("BatRMB");
+                        attackStamina -= attackDrain;
+                    }
+                }
+                if (SaveScripts.haveAxe == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        anim.SetTrigger("AxeLMB");
+                        attackStamina -= attackDrain;
+                    }
+                }
+                if (SaveScripts.haveAxe == true)
+                {
+                    if (Input.GetKeyDown(KeyCode.Mouse1))
+                    {
+                        anim.SetTrigger("AxeRMB");
+                        attackStamina -= attackDrain;
                     }
                 }
 
-
-            }
-            if (SaveScripts.haveCrossbow == true)
-            {
-                if (Input.GetKey(KeyCode.Mouse1))
+                if (SaveScripts.haveGun == true)
                 {
-                    anim.SetBool("AimGun", true);
-                    crosshair.gameObject.SetActive(true);
-                    pointer.gameObject.SetActive(false);
-                }
-                if (Input.GetKeyUp(KeyCode.Mouse1))
-                {
-                    anim.SetBool("AimGun", false);
-                    crosshair.gameObject.SetActive(false);
-
-                    pointer.gameObject.SetActive(true);
-                }
-                if (Input.GetKeyDown(KeyCode.Mouse0))
-                {
-                    if (SaveScripts.arrows> 0)
+                    if (Input.GetKey(KeyCode.Mouse1))
                     {
-                        myplayer.clip = bowShortSound;
-                        myplayer.Play();
+                        anim.SetBool("AimGun", true);
+                        crosshair.gameObject.SetActive(true);
+                        pointer.gameObject.SetActive(false);
                     }
+                    if (Input.GetKeyUp(KeyCode.Mouse1))
+                    {
+                        anim.SetBool("AimGun", false);
+                        crosshair.gameObject.SetActive(false);
+
+                        pointer.gameObject.SetActive(true);
+                    }
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        if (SaveScripts.bullets > 0)
+                        {
+                            myplayer.clip = gunShortSound;
+                            myplayer.Play();
+                        }
+                    }
+
+
+                }
+                if (SaveScripts.haveCrossbow == true)
+                {
+                    if (Input.GetKey(KeyCode.Mouse1))
+                    {
+                        anim.SetBool("AimGun", true);
+                        crosshair.gameObject.SetActive(true);
+                        pointer.gameObject.SetActive(false);
+                    }
+                    if (Input.GetKeyUp(KeyCode.Mouse1))
+                    {
+                        anim.SetBool("AimGun", false);
+                        crosshair.gameObject.SetActive(false);
+
+                        pointer.gameObject.SetActive(true);
+                    }
+                    if (Input.GetKeyDown(KeyCode.Mouse0))
+                    {
+                        if (SaveScripts.arrows > 0)
+                        {
+                            myplayer.clip = bowShortSound;
+                            myplayer.Play();
+                        }
+                    }
+
+
                 }
 
-
             }
-
         }
     }
 

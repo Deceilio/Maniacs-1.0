@@ -33,7 +33,9 @@ public class SaveScripts : MonoBehaviour
     public static bool savedGame = false;
     public static int bullets = 12;
     public static int arrows = 6;
-    
+    public static bool inventoryOpen = false;
+    public static bool optionOpen = false;
+
     public static Transform target1;
     public static Transform target2;
     public static Transform target3;
@@ -150,6 +152,8 @@ public class SaveScripts : MonoBehaviour
             enemy2 = 1;
             enemy3 = 1;
             enemy4 = 1;
+            inventoryOpen = false;
+            optionOpen = false;
 
 
         }
@@ -212,6 +216,8 @@ public class SaveScripts : MonoBehaviour
                 arrowRefill = true;
             }
             savedGame = false;
+            inventoryOpen = false;
+            optionOpen = false;
 
         }
     }

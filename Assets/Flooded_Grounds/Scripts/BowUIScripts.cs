@@ -18,11 +18,15 @@ public class BowUIScripts : MonoBehaviour
         bowAmt.text = SaveScripts.arrows + "";
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            if (SaveScripts.arrows > 0)
+            if (SaveScripts.inventoryOpen == false && SaveScripts.optionOpen == false)
             {
-                SaveScripts.arrows -= 1;
-                
+                if (SaveScripts.arrows > 0)
+                {
+                    SaveScripts.arrows -= 1;
+
+                }
             }
+            
         }
     }
 }
