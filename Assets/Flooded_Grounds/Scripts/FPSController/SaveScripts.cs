@@ -57,7 +57,7 @@ public class SaveScripts : MonoBehaviour
     public static Animator hurt;
     public static AudioSource audioP;
     public static GameObject arms;
-    public static int maxEnemyOnScreen = 6;
+    public static int maxEnemyOnScreen = 40;
     public static int enemyOnScreen = 0;
     public static int maxEnemiesInGame = 100;
     public static int enemiesCurrent = 0;
@@ -220,6 +220,11 @@ public class SaveScripts : MonoBehaviour
             optionOpen = false;
 
         }
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
 }
